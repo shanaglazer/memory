@@ -24,8 +24,10 @@ namespace MemoryGame
             btnStart.Click += BtnStart_Click;
 
             lstbuttons = new() { btn1, btn2, btn3, btn4, btn5, btn6, button7, button8, button8, button9, button10, button11, button12, button13, button14, button15, button16, button17, button18, button19, button20, button21, button22, button23, button24, button25, button26, button27, button28, button29, button30};
+            lstbuttons.ForEach(b => b.Click += B_Click);
         }
 
+        
         private void EnableButtons()
         {
             foreach(Button b in tblCards.Controls)
@@ -38,14 +40,14 @@ namespace MemoryGame
         {
             for(int i = 0; i <= 15; i++)
             {
-                int a = rnd.Next(lstbuttons.Count());
-                int b = rnd.Next(lstbuttons.Count());
-                if(a == b)
-                {
-                    b = rnd.Next(lstbuttons.Count());
-                }
                 int c = rnd.Next(lstletters.Count());
-                //ovedet po al halukat ot lecol klaf
+                int a = rnd.Next(lstbuttons.Count());
+                lstbuttons[a].Text = lstletters[c].ToString();
+                lstbuttons.RemoveAt(a);
+                int b = rnd.Next(lstbuttons.Count());
+                lstbuttons[b].Text = lstletters[c].ToUpper().ToString();
+                lstbuttons.RemoveAt(b);
+                lstletters.RemoveAt(c);
             }
         }
 
@@ -54,11 +56,21 @@ namespace MemoryGame
             lblMessage.Text = "Current turn: Player " + currentturn.ToString();
         }
 
+        private void B_Click(object? sender, EventArgs e)
+        {
+            if(sender is Button)
+            {
+                ((Button)sender).BackColor = Color.White;
+            }
+        }
+
+
         private void BtnStart_Click(object? sender, EventArgs e)
         {
             EnableButtons();
             LblMessage();
             btnStart.Enabled = false;
+            GiveCardLetter();
         }
     }
 }

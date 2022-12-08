@@ -260,363 +260,393 @@
             // 
             // btn1
             // 
+            this.btn1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btn1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn1.Enabled = false;
             this.btn1.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.btn1.Location = new System.Drawing.Point(3, 3);
             this.btn1.Name = "btn1";
             this.btn1.Size = new System.Drawing.Size(103, 73);
             this.btn1.TabIndex = 0;
-            this.btn1.Text = "?";
-            this.btn1.UseVisualStyleBackColor = true;
+            this.btn1.UseVisualStyleBackColor = false;
             // 
             // btn2
             // 
+            this.btn2.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btn2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn2.Enabled = false;
             this.btn2.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn2.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.btn2.Location = new System.Drawing.Point(112, 3);
             this.btn2.Name = "btn2";
             this.btn2.Size = new System.Drawing.Size(103, 73);
             this.btn2.TabIndex = 1;
-            this.btn2.Text = "?";
-            this.btn2.UseVisualStyleBackColor = true;
+            this.btn2.UseVisualStyleBackColor = false;
             // 
             // btn3
             // 
+            this.btn3.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btn3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn3.Enabled = false;
             this.btn3.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn3.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.btn3.Location = new System.Drawing.Point(221, 3);
             this.btn3.Name = "btn3";
             this.btn3.Size = new System.Drawing.Size(103, 73);
             this.btn3.TabIndex = 2;
-            this.btn3.Text = "?";
-            this.btn3.UseVisualStyleBackColor = true;
+            this.btn3.UseVisualStyleBackColor = false;
             // 
             // btn4
             // 
+            this.btn4.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btn4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn4.Enabled = false;
             this.btn4.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn4.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.btn4.Location = new System.Drawing.Point(330, 3);
             this.btn4.Name = "btn4";
             this.btn4.Size = new System.Drawing.Size(103, 73);
             this.btn4.TabIndex = 3;
-            this.btn4.Text = "?";
-            this.btn4.UseVisualStyleBackColor = true;
+            this.btn4.UseVisualStyleBackColor = false;
             // 
             // btn5
             // 
+            this.btn5.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btn5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn5.Enabled = false;
             this.btn5.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn5.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.btn5.Location = new System.Drawing.Point(439, 3);
             this.btn5.Name = "btn5";
             this.btn5.Size = new System.Drawing.Size(103, 73);
             this.btn5.TabIndex = 4;
-            this.btn5.Text = "?";
-            this.btn5.UseVisualStyleBackColor = true;
+            this.btn5.UseVisualStyleBackColor = false;
             // 
             // btn6
             // 
+            this.btn6.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btn6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn6.Enabled = false;
             this.btn6.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn6.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.btn6.Location = new System.Drawing.Point(548, 3);
             this.btn6.Name = "btn6";
             this.btn6.Size = new System.Drawing.Size(108, 73);
             this.btn6.TabIndex = 5;
-            this.btn6.Text = "?";
-            this.btn6.UseVisualStyleBackColor = true;
+            this.btn6.UseVisualStyleBackColor = false;
             // 
             // button7
             // 
+            this.button7.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button7.Enabled = false;
             this.button7.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button7.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.button7.Location = new System.Drawing.Point(3, 82);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(103, 73);
             this.button7.TabIndex = 6;
-            this.button7.Text = "?";
-            this.button7.UseVisualStyleBackColor = true;
+            this.button7.UseVisualStyleBackColor = false;
             // 
             // button8
             // 
+            this.button8.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button8.Enabled = false;
             this.button8.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button8.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.button8.Location = new System.Drawing.Point(112, 82);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(103, 73);
             this.button8.TabIndex = 7;
-            this.button8.Text = "?";
-            this.button8.UseVisualStyleBackColor = true;
+            this.button8.UseVisualStyleBackColor = false;
             // 
             // button9
             // 
+            this.button9.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button9.Enabled = false;
             this.button9.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button9.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.button9.Location = new System.Drawing.Point(221, 82);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(103, 73);
             this.button9.TabIndex = 8;
-            this.button9.Text = "?";
-            this.button9.UseVisualStyleBackColor = true;
+            this.button9.UseVisualStyleBackColor = false;
             // 
             // button10
             // 
+            this.button10.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button10.Enabled = false;
             this.button10.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button10.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.button10.Location = new System.Drawing.Point(330, 82);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(103, 73);
             this.button10.TabIndex = 9;
-            this.button10.Text = "?";
-            this.button10.UseVisualStyleBackColor = true;
+            this.button10.UseVisualStyleBackColor = false;
             // 
             // button11
             // 
+            this.button11.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button11.Enabled = false;
             this.button11.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button11.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.button11.Location = new System.Drawing.Point(439, 82);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(103, 73);
             this.button11.TabIndex = 10;
-            this.button11.Text = "?";
-            this.button11.UseVisualStyleBackColor = true;
+            this.button11.UseVisualStyleBackColor = false;
             // 
             // button12
             // 
+            this.button12.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button12.Enabled = false;
             this.button12.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button12.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.button12.Location = new System.Drawing.Point(548, 82);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(108, 73);
             this.button12.TabIndex = 11;
-            this.button12.Text = "?";
-            this.button12.UseVisualStyleBackColor = true;
+            this.button12.UseVisualStyleBackColor = false;
             // 
             // button13
             // 
+            this.button13.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button13.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button13.Enabled = false;
             this.button13.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button13.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.button13.Location = new System.Drawing.Point(3, 161);
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(103, 73);
             this.button13.TabIndex = 12;
-            this.button13.Text = "?";
-            this.button13.UseVisualStyleBackColor = true;
+            this.button13.UseVisualStyleBackColor = false;
             // 
             // button14
             // 
+            this.button14.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button14.Enabled = false;
             this.button14.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button14.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.button14.Location = new System.Drawing.Point(112, 161);
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(103, 73);
             this.button14.TabIndex = 13;
-            this.button14.Text = "?";
-            this.button14.UseVisualStyleBackColor = true;
+            this.button14.UseVisualStyleBackColor = false;
             // 
             // button15
             // 
+            this.button15.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button15.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button15.Enabled = false;
             this.button15.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button15.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.button15.Location = new System.Drawing.Point(221, 161);
             this.button15.Name = "button15";
             this.button15.Size = new System.Drawing.Size(103, 73);
             this.button15.TabIndex = 14;
-            this.button15.Text = "?";
-            this.button15.UseVisualStyleBackColor = true;
+            this.button15.UseVisualStyleBackColor = false;
             // 
             // button16
             // 
+            this.button16.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button16.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button16.Enabled = false;
             this.button16.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button16.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.button16.Location = new System.Drawing.Point(330, 161);
             this.button16.Name = "button16";
             this.button16.Size = new System.Drawing.Size(103, 73);
             this.button16.TabIndex = 15;
-            this.button16.Text = "?";
-            this.button16.UseVisualStyleBackColor = true;
+            this.button16.UseVisualStyleBackColor = false;
             // 
             // button17
             // 
+            this.button17.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button17.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button17.Enabled = false;
             this.button17.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button17.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.button17.Location = new System.Drawing.Point(439, 161);
             this.button17.Name = "button17";
             this.button17.Size = new System.Drawing.Size(103, 73);
             this.button17.TabIndex = 16;
-            this.button17.Text = "?";
-            this.button17.UseVisualStyleBackColor = true;
+            this.button17.UseVisualStyleBackColor = false;
             // 
             // button18
             // 
+            this.button18.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button18.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button18.Enabled = false;
             this.button18.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button18.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.button18.Location = new System.Drawing.Point(548, 161);
             this.button18.Name = "button18";
             this.button18.Size = new System.Drawing.Size(108, 73);
             this.button18.TabIndex = 17;
-            this.button18.Text = "?";
-            this.button18.UseVisualStyleBackColor = true;
+            this.button18.UseVisualStyleBackColor = false;
             // 
             // button19
             // 
+            this.button19.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button19.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button19.Enabled = false;
             this.button19.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button19.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.button19.Location = new System.Drawing.Point(3, 240);
             this.button19.Name = "button19";
             this.button19.Size = new System.Drawing.Size(103, 73);
             this.button19.TabIndex = 18;
-            this.button19.Text = "?";
-            this.button19.UseVisualStyleBackColor = true;
+            this.button19.UseVisualStyleBackColor = false;
             // 
             // button20
             // 
+            this.button20.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button20.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button20.Enabled = false;
             this.button20.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button20.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.button20.Location = new System.Drawing.Point(112, 240);
             this.button20.Name = "button20";
             this.button20.Size = new System.Drawing.Size(103, 73);
             this.button20.TabIndex = 19;
-            this.button20.Text = "?";
-            this.button20.UseVisualStyleBackColor = true;
+            this.button20.UseVisualStyleBackColor = false;
             // 
             // button21
             // 
+            this.button21.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button21.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button21.Enabled = false;
             this.button21.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button21.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.button21.Location = new System.Drawing.Point(221, 240);
             this.button21.Name = "button21";
             this.button21.Size = new System.Drawing.Size(103, 73);
             this.button21.TabIndex = 20;
-            this.button21.Text = "?";
-            this.button21.UseVisualStyleBackColor = true;
+            this.button21.UseVisualStyleBackColor = false;
             // 
             // button22
             // 
+            this.button22.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button22.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button22.Enabled = false;
             this.button22.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button22.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.button22.Location = new System.Drawing.Point(330, 240);
             this.button22.Name = "button22";
             this.button22.Size = new System.Drawing.Size(103, 73);
             this.button22.TabIndex = 21;
-            this.button22.Text = "?";
-            this.button22.UseVisualStyleBackColor = true;
+            this.button22.UseVisualStyleBackColor = false;
             // 
             // button23
             // 
+            this.button23.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button23.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button23.Enabled = false;
             this.button23.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button23.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.button23.Location = new System.Drawing.Point(439, 240);
             this.button23.Name = "button23";
             this.button23.Size = new System.Drawing.Size(103, 73);
             this.button23.TabIndex = 22;
-            this.button23.Text = "?";
-            this.button23.UseVisualStyleBackColor = true;
+            this.button23.UseVisualStyleBackColor = false;
             // 
             // button24
             // 
+            this.button24.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button24.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button24.Enabled = false;
             this.button24.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button24.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.button24.Location = new System.Drawing.Point(548, 240);
             this.button24.Name = "button24";
             this.button24.Size = new System.Drawing.Size(108, 73);
             this.button24.TabIndex = 23;
-            this.button24.Text = "?";
-            this.button24.UseVisualStyleBackColor = true;
+            this.button24.UseVisualStyleBackColor = false;
             // 
             // button25
             // 
+            this.button25.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button25.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button25.Enabled = false;
             this.button25.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button25.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.button25.Location = new System.Drawing.Point(3, 319);
             this.button25.Name = "button25";
             this.button25.Size = new System.Drawing.Size(103, 74);
             this.button25.TabIndex = 24;
-            this.button25.Text = "?";
-            this.button25.UseVisualStyleBackColor = true;
+            this.button25.UseVisualStyleBackColor = false;
             // 
             // button26
             // 
+            this.button26.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button26.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button26.Enabled = false;
             this.button26.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button26.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.button26.Location = new System.Drawing.Point(112, 319);
             this.button26.Name = "button26";
             this.button26.Size = new System.Drawing.Size(103, 74);
             this.button26.TabIndex = 25;
-            this.button26.Text = "?";
-            this.button26.UseVisualStyleBackColor = true;
+            this.button26.UseVisualStyleBackColor = false;
             // 
             // button27
             // 
+            this.button27.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button27.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button27.Enabled = false;
             this.button27.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button27.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.button27.Location = new System.Drawing.Point(221, 319);
             this.button27.Name = "button27";
             this.button27.Size = new System.Drawing.Size(103, 74);
             this.button27.TabIndex = 26;
-            this.button27.Text = "?";
-            this.button27.UseVisualStyleBackColor = true;
+            this.button27.UseVisualStyleBackColor = false;
             // 
             // button28
             // 
+            this.button28.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button28.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button28.Enabled = false;
             this.button28.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button28.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.button28.Location = new System.Drawing.Point(330, 319);
             this.button28.Name = "button28";
             this.button28.Size = new System.Drawing.Size(103, 74);
             this.button28.TabIndex = 27;
-            this.button28.Text = "?";
-            this.button28.UseVisualStyleBackColor = true;
+            this.button28.UseVisualStyleBackColor = false;
             // 
             // button29
             // 
+            this.button29.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button29.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button29.Enabled = false;
             this.button29.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button29.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.button29.Location = new System.Drawing.Point(439, 319);
             this.button29.Name = "button29";
             this.button29.Size = new System.Drawing.Size(103, 74);
             this.button29.TabIndex = 28;
-            this.button29.Text = "?";
-            this.button29.UseVisualStyleBackColor = true;
+            this.button29.UseVisualStyleBackColor = false;
             // 
             // button30
             // 
+            this.button30.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button30.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button30.Enabled = false;
             this.button30.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button30.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.button30.Location = new System.Drawing.Point(548, 319);
             this.button30.Name = "button30";
             this.button30.Size = new System.Drawing.Size(108, 74);
             this.button30.TabIndex = 29;
-            this.button30.Text = "?";
-            this.button30.UseVisualStyleBackColor = true;
+            this.button30.UseVisualStyleBackColor = false;
             // 
             // Memory
             // 
