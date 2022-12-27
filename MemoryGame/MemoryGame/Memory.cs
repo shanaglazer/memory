@@ -18,6 +18,8 @@ namespace MemoryGame
         List<string> lstletters = new() { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"};
         List<Button> lstbuttons;
 
+        //tzricha limzo derech lhatim randomaly et haklafim laot
+
         public Memory()
         {
             InitializeComponent();
@@ -38,7 +40,7 @@ namespace MemoryGame
 
         private void GiveCardLetter()
         {
-            for(int i = 0; i <= 15; i++)
+            for(int i = 0; i < 15; i++)
             {
                 int c = rnd.Next(lstletters.Count());
                 int a = rnd.Next(lstbuttons.Count());
@@ -60,7 +62,11 @@ namespace MemoryGame
         {
             if(sender is Button)
             {
-                ((Button)sender).BackColor = Color.White;
+                if (lstbuttons.Where(btn => btn.BackColor == Color.White).ToList().Count() < 2)
+                {
+
+                    ((Button)sender).BackColor = Color.White;
+                }
             }
         }
 
