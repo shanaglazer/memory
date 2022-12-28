@@ -38,6 +38,7 @@
             this.tblB = new System.Windows.Forms.TableLayoutPanel();
             this.lblB = new System.Windows.Forms.Label();
             this.lblBScore = new System.Windows.Forms.Label();
+            this.btnSwitch = new System.Windows.Forms.Button();
             this.tblCards = new System.Windows.Forms.TableLayoutPanel();
             this.btn1 = new System.Windows.Forms.Button();
             this.btn2 = new System.Windows.Forms.Button();
@@ -93,21 +94,22 @@
             // 
             // tblBar
             // 
-            this.tblBar.ColumnCount = 4;
-            this.tblBar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tblBar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tblBar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tblBar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tblBar.ColumnCount = 5;
+            this.tblBar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tblBar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tblBar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tblBar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tblBar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tblBar.Controls.Add(this.btnStart, 0, 0);
             this.tblBar.Controls.Add(this.lblMessage, 3, 0);
             this.tblBar.Controls.Add(this.tblA, 1, 0);
             this.tblBar.Controls.Add(this.tblB, 2, 0);
+            this.tblBar.Controls.Add(this.btnSwitch, 4, 0);
             this.tblBar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tblBar.Location = new System.Drawing.Point(3, 405);
             this.tblBar.Name = "tblBar";
             this.tblBar.RowCount = 1;
             this.tblBar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tblBar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tblBar.Size = new System.Drawing.Size(659, 66);
             this.tblBar.TabIndex = 0;
             // 
@@ -117,7 +119,7 @@
             this.btnStart.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnStart.Location = new System.Drawing.Point(3, 3);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(158, 60);
+            this.btnStart.Size = new System.Drawing.Size(125, 60);
             this.btnStart.TabIndex = 0;
             this.btnStart.Text = "Start Game";
             this.btnStart.UseVisualStyleBackColor = true;
@@ -127,9 +129,9 @@
             this.lblMessage.AutoSize = true;
             this.lblMessage.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblMessage.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblMessage.Location = new System.Drawing.Point(495, 0);
+            this.lblMessage.Location = new System.Drawing.Point(396, 0);
             this.lblMessage.Name = "lblMessage";
-            this.lblMessage.Size = new System.Drawing.Size(161, 66);
+            this.lblMessage.Size = new System.Drawing.Size(125, 66);
             this.lblMessage.TabIndex = 1;
             this.lblMessage.Text = "Click Start Game ";
             this.lblMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -141,12 +143,12 @@
             this.tblA.Controls.Add(this.lblA, 0, 0);
             this.tblA.Controls.Add(this.lblAScore, 0, 1);
             this.tblA.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tblA.Location = new System.Drawing.Point(167, 3);
+            this.tblA.Location = new System.Drawing.Point(134, 3);
             this.tblA.Name = "tblA";
             this.tblA.RowCount = 2;
             this.tblA.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tblA.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblA.Size = new System.Drawing.Size(158, 60);
+            this.tblA.Size = new System.Drawing.Size(125, 60);
             this.tblA.TabIndex = 2;
             // 
             // lblA
@@ -156,7 +158,7 @@
             this.lblA.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblA.Location = new System.Drawing.Point(3, 0);
             this.lblA.Name = "lblA";
-            this.lblA.Size = new System.Drawing.Size(152, 30);
+            this.lblA.Size = new System.Drawing.Size(119, 30);
             this.lblA.TabIndex = 0;
             this.lblA.Text = "Player A score:";
             this.lblA.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -167,8 +169,9 @@
             this.lblAScore.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblAScore.Location = new System.Drawing.Point(3, 30);
             this.lblAScore.Name = "lblAScore";
-            this.lblAScore.Size = new System.Drawing.Size(152, 30);
+            this.lblAScore.Size = new System.Drawing.Size(119, 30);
             this.lblAScore.TabIndex = 1;
+            this.lblAScore.Text = "0";
             // 
             // tblB
             // 
@@ -178,12 +181,12 @@
             this.tblB.Controls.Add(this.lblB, 0, 0);
             this.tblB.Controls.Add(this.lblBScore, 0, 1);
             this.tblB.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tblB.Location = new System.Drawing.Point(331, 3);
+            this.tblB.Location = new System.Drawing.Point(265, 3);
             this.tblB.Name = "tblB";
             this.tblB.RowCount = 2;
             this.tblB.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tblB.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblB.Size = new System.Drawing.Size(158, 60);
+            this.tblB.Size = new System.Drawing.Size(125, 60);
             this.tblB.TabIndex = 3;
             // 
             // lblB
@@ -193,7 +196,7 @@
             this.lblB.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblB.Location = new System.Drawing.Point(3, 0);
             this.lblB.Name = "lblB";
-            this.lblB.Size = new System.Drawing.Size(152, 30);
+            this.lblB.Size = new System.Drawing.Size(119, 30);
             this.lblB.TabIndex = 0;
             this.lblB.Text = "Player B score:";
             this.lblB.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -204,8 +207,21 @@
             this.lblBScore.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblBScore.Location = new System.Drawing.Point(3, 30);
             this.lblBScore.Name = "lblBScore";
-            this.lblBScore.Size = new System.Drawing.Size(152, 30);
+            this.lblBScore.Size = new System.Drawing.Size(119, 30);
             this.lblBScore.TabIndex = 1;
+            this.lblBScore.Text = "0";
+            // 
+            // btnSwitch
+            // 
+            this.btnSwitch.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSwitch.Enabled = false;
+            this.btnSwitch.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnSwitch.Location = new System.Drawing.Point(527, 3);
+            this.btnSwitch.Name = "btnSwitch";
+            this.btnSwitch.Size = new System.Drawing.Size(129, 60);
+            this.btnSwitch.TabIndex = 4;
+            this.btnSwitch.Text = "Switch Turns";
+            this.btnSwitch.UseVisualStyleBackColor = true;
             // 
             // tblCards
             // 
@@ -711,5 +727,6 @@
         private Button button28;
         private Button button29;
         private Button button30;
+        private Button btnSwitch;
     }
 }
