@@ -12,9 +12,9 @@ namespace MemoryGame
 {
     public partial class Memory : Form
     {
-        // menatzeah
-        // thilat mishak hadash - enable et hakaftor
-        // lblMessage - torot, nekuda nosfa le..., menazeah, lilhots lehthil mehadash
+        // v livdok menatzeah
+        // v livdok thilat mishak hadash - enable et hakaftor
+        // lblMessage - torot, ---nekuda nosfa le...---, menazeah, ---lilhots lehthil mehadash---
         enum TurnEnum { A, B }
         TurnEnum currentturn = TurnEnum.A;
         Random rnd = new();
@@ -23,7 +23,6 @@ namespace MemoryGame
         List<string> lstletters = new() { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"};
         List<Button> lstbuttons;
 
-        //tzricha limzo derech lhatim randomaly et haklafim laot
 
         public Memory()
         {
@@ -63,6 +62,7 @@ namespace MemoryGame
 
         private void SetCurrentTurn()
         {
+            //switch / case
                 if(currentturn == TurnEnum.A)
                 {
                     currentturn = TurnEnum.B;
@@ -73,14 +73,31 @@ namespace MemoryGame
                 }
         }
 
+        private string detectwinner()
+        {
+            string winner = "";
+            if (AScore > BScore)
+            {
+                winner = "A";
+            }
+            else if (BScore > AScore)
+            {
+                winner = "B";
+            }
+            return winner;
+        }
+
         private void LblMessage()
         {
-            SetCurrentTurn();
+            //lehosif im mekabel nekuda vele-refactor
             lblMessage.Text = "Current turn: Player " + currentturn.ToString();
-            //if ()
-            //{
-
-            //}
+            if (lstbuttons.Where(b => b.Enabled = true).ToList().Count() == 0) 
+            {
+                lblMessage.Text = "Winner is " + detectwinner();
+                btnStart.Enabled = true;
+                btnSwitch.Enabled = false;
+                lstbuttons.ForEach(b => b.BackColor = b.ForeColor);
+            }
         }
         private void BtnSwitch_Click(object? sender, EventArgs e)
         {
@@ -100,9 +117,10 @@ namespace MemoryGame
                 lblBScore.Text = BScore.ToString();
                 lstcheckb.ForEach(b => b.Enabled = false);
             }
-            SetCurrentTurn();
             lstbuttons.ForEach(b => b.BackColor = b.ForeColor);
             btnSwitch.Enabled = false;
+            SetCurrentTurn();
+            LblMessage();
         }
 
         private void B_Click(object? sender, EventArgs e)
@@ -119,7 +137,6 @@ namespace MemoryGame
             {
                 btnSwitch.Enabled = true;
             }
-            LblMessage();
         }
 
 
@@ -129,6 +146,8 @@ namespace MemoryGame
             LblMessage();
             btnStart.Enabled = false;
             GiveCardLetter();
+            lblAScore.Text = "0";
+            lblBScore.Text = "0";
         }
     }
 }
