@@ -12,9 +12,6 @@ namespace MemoryGame
 {
     public partial class Memory : Form
     {
-        // v torot
-        // v klafim nisgarim col 10 shniot aharei tor
-        // v nikud
         // menatzeah
         // thilat mishak hadash - enable et hakaftor
         // lblMessage - torot, nekuda nosfa le..., menazeah, lilhots lehthil mehadash
@@ -105,6 +102,7 @@ namespace MemoryGame
             }
             SetCurrentTurn();
             lstbuttons.ForEach(b => b.BackColor = b.ForeColor);
+            btnSwitch.Enabled = false;
         }
 
         private void B_Click(object? sender, EventArgs e)
