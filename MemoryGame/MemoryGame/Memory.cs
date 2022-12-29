@@ -12,14 +12,12 @@ namespace MemoryGame
 {
     public partial class Memory : Form
     {
-        // v livdok menatzeah
-        // v livdok thilat mishak hadash - enable et hakaftor
-        // lblMessage - torot, ---nekuda nosfa le...---, menazeah, ---lilhots lehthil mehadash---
         enum TurnEnum { A, B }
         TurnEnum currentturn = TurnEnum.A;
         Random rnd = new();
         int AScore = 0;
         int BScore = 0;
+        bool pair = false;
         List<string> lstletters = new() { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"};
         List<Button> lstbuttons;
 
@@ -62,15 +60,24 @@ namespace MemoryGame
 
         private void SetCurrentTurn()
         {
-            //switch / case
-                if(currentturn == TurnEnum.A)
-                {
-                    currentturn = TurnEnum.B;
-                }
-                else if(currentturn == TurnEnum.B)
-                {
-                    currentturn = TurnEnum.A;
-                }
+            currentturn = currentturn == TurnEnum.A ? TurnEnum.B : TurnEnum.A;
+            //switch (currentturn)
+            //{
+            //    case TurnEnum.A:
+            //        currentturn = TurnEnum.B;
+            //        break;
+            //    case TurnEnum.B:
+            //        currentturn = TurnEnum.A;
+            //        break;
+            //}
+                //if(currentturn == TurnEnum.A)
+                //{
+                //    currentturn = TurnEnum.B;
+                //}
+                //else if(currentturn == TurnEnum.B)
+                //{
+                //    currentturn = TurnEnum.A;
+                //}
         }
 
         private string detectwinner()
@@ -79,9 +86,11 @@ namespace MemoryGame
             if (AScore > BScore)
             {
                 winner = "A";
+                lblAScore.BackColor = Color.BlueViolet;
             }
             else if (BScore > AScore)
             {
+                lblBScore.BackColor = Color.BlueViolet;
                 winner = "B";
             }
             return winner;
@@ -89,11 +98,11 @@ namespace MemoryGame
 
         private void LblMessage()
         {
-            //lehosif im mekabel nekuda vele-refactor
-            lblMessage.Text = "Current turn: Player " + currentturn.ToString();
+            string message = "Current turn: Player " + currentturn.ToString();
+            lblMessage.Text = pair == false? message: "You got it! " + message;
             if (lstbuttons.Where(b => b.Enabled = true).ToList().Count() == 0) 
             {
-                lblMessage.Text = "Winner is " + detectwinner();
+                lblMessage.Text = "Winner is " + detectwinner() + " Click Start Game";
                 btnStart.Enabled = true;
                 btnSwitch.Enabled = false;
                 lstbuttons.ForEach(b => b.BackColor = b.ForeColor);
@@ -101,9 +110,11 @@ namespace MemoryGame
         }
         private void BtnSwitch_Click(object? sender, EventArgs e)
         {
+            pair = false;
             List<Button> lstcheckb = lstbuttons.Where(b => b.BackColor == Color.White).ToList();
             if (lstcheckb[0].Text.ToLower() == lstcheckb[1].Text.ToLower())
             {
+                pair = true;
                 switch (currentturn)
                 {
                     case TurnEnum.A:
