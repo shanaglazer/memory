@@ -61,23 +61,6 @@ namespace MemoryGame
         private void SetCurrentTurn()
         {
             currentturn = currentturn == TurnEnum.A ? TurnEnum.B : TurnEnum.A;
-            //switch (currentturn)
-            //{
-            //    case TurnEnum.A:
-            //        currentturn = TurnEnum.B;
-            //        break;
-            //    case TurnEnum.B:
-            //        currentturn = TurnEnum.A;
-            //        break;
-            //}
-                //if(currentturn == TurnEnum.A)
-                //{
-                //    currentturn = TurnEnum.B;
-                //}
-                //else if(currentturn == TurnEnum.B)
-                //{
-                //    currentturn = TurnEnum.A;
-                //}
         }
 
         private string detectwinner()
