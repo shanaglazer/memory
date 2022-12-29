@@ -120,23 +120,25 @@ namespace MemoryGame
             lstbuttons.ForEach(b => b.BackColor = b.ForeColor);
             btnSwitch.Enabled = false;
         }
-
-        private void BtnSwitch_Click(object? sender, EventArgs e)
-        {
-            switchturn();
-            SetCurrentTurn();
-            LblMessage();
-        }
-
         private int buttonsclicked()
         {
             int i = lstbuttons.Where(btn => btn.BackColor == Color.White).Count();
             return i;
         }
 
-        private void cardclick()
+        private void startgame()
         {
+            btnStart.Enabled = false;
+            GiveCardLetter();
+            List<Label> lstlbl = new() { lblAScore, lblBScore };
+            lstlbl.ForEach(l => { l.Text = "0"; l.BackColor = btn1.BackColor; });
+        }
 
+        private void BtnSwitch_Click(object? sender, EventArgs e)
+        {
+            switchturn();
+            SetCurrentTurn();
+            LblMessage();
         }
 
         private void B_Click(object? sender, EventArgs e)
@@ -160,12 +162,7 @@ namespace MemoryGame
         {
             EnableButtons();
             LblMessage();
-            btnStart.Enabled = false;
-            GiveCardLetter();
-            lblAScore.Text = "0";
-            lblBScore.Text = "0";
-            lblAScore.BackColor = btn1.BackColor;
-            lblBScore.BackColor = btn1.BackColor;
+            startgame();
         }
     }
 }
