@@ -79,19 +79,25 @@ namespace MemoryGame
             return winner;
         }
 
+        private void winnermode()
+        {
+            btnStart.Enabled = true;
+            btnSwitch.Enabled = false;
+            lstbuttons.ForEach(b => b.BackColor = b.ForeColor);
+        }
+
         private void LblMessage()
         {
             string message = "Current turn: Player " + currentturn.ToString();
             lblMessage.Text = pair == false? message: "You got it! " + message;
-            if (lstbuttons.Where(b => b.Enabled = true).ToList().Count() == 0) 
+            if (lstbuttons.Where(b => b.Enabled == true).ToList().Count() == 0) 
             {
                 lblMessage.Text = "Winner is " + detectwinner() + " Click Start Game";
-                btnStart.Enabled = true;
-                btnSwitch.Enabled = false;
-                lstbuttons.ForEach(b => b.BackColor = b.ForeColor);
+                winnermode();
             }
         }
-        private void BtnSwitch_Click(object? sender, EventArgs e)
+
+        private void switchturn()
         {
             pair = false;
             List<Button> lstcheckb = lstbuttons.Where(b => b.BackColor == Color.White).ToList();
@@ -113,21 +119,37 @@ namespace MemoryGame
             }
             lstbuttons.ForEach(b => b.BackColor = b.ForeColor);
             btnSwitch.Enabled = false;
+        }
+
+        private void BtnSwitch_Click(object? sender, EventArgs e)
+        {
+            switchturn();
             SetCurrentTurn();
             LblMessage();
+        }
+
+        private int buttonsclicked()
+        {
+            int i = lstbuttons.Where(btn => btn.BackColor == Color.White).Count();
+            return i;
+        }
+
+        private void cardclick()
+        {
+
         }
 
         private void B_Click(object? sender, EventArgs e)
         {
             if(sender is Button)
             {
-                if (lstbuttons.Where(btn => btn.BackColor == Color.White).Count() < 2)
+                if (buttonsclicked() < 2)
                 {
 
                     ((Button)sender).BackColor = Color.White;
                 }
             }
-            if (lstbuttons.Where(b => b.BackColor == Color.White).Count() == 2)
+            if (buttonsclicked() == 2)
             {
                 btnSwitch.Enabled = true;
             }
@@ -142,6 +164,8 @@ namespace MemoryGame
             GiveCardLetter();
             lblAScore.Text = "0";
             lblBScore.Text = "0";
+            lblAScore.BackColor = btn1.BackColor;
+            lblBScore.BackColor = btn1.BackColor;
         }
     }
 }
