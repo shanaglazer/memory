@@ -14,6 +14,7 @@ namespace MemoryGame
     {
         enum TurnEnum { A, B }
         TurnEnum currentturn = TurnEnum.A;
+        bool newgame = true;
         Random rnd = new();
         int AScore = 0;
         int BScore = 0;
@@ -90,7 +91,12 @@ namespace MemoryGame
         {
             string message = "Current turn: Player " + currentturn.ToString();
             lblMessage.Text = pair == false? message: "You got it! " + message;
-            if (lstbuttons.Where(b => b.Enabled == true).ToList().Count() == 0) 
+            //lesader po sheim thilat mishak az bli u got it
+            if(newgame == true)
+            {
+                lblMessage.Text = message;
+            }
+            else if (lstbuttons.Where(b => b.Enabled == true).ToList().Count() == 0) 
             {
                 lblMessage.Text = "Winner is " + detectwinner() + " Click Start Game";
                 winnermode();
@@ -132,6 +138,7 @@ namespace MemoryGame
             GiveCardLetter();
             List<Label> lstlbl = new() { lblAScore, lblBScore };
             lstlbl.ForEach(l => { l.Text = "0"; l.BackColor = btn1.BackColor; });
+            currentturn = TurnEnum.A;
         }
 
         private void BtnSwitch_Click(object? sender, EventArgs e)
@@ -155,11 +162,13 @@ namespace MemoryGame
             {
                 btnSwitch.Enabled = true;
             }
+            newgame = false;
         }
 
 
         private void BtnStart_Click(object? sender, EventArgs e)
         {
+            newgame = true;
             EnableButtons();
             LblMessage();
             startgame();
