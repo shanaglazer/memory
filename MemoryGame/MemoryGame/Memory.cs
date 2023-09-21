@@ -170,8 +170,10 @@ namespace MemoryGame
         {
             newgame = true;
             EnableButtons();
+            currentturn = TurnEnum.A;
             LblMessage();
             startgame();
         }
+
     }
 }

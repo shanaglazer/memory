@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MemoryMaui.Memory"
+             Title="Memory">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Button">
+                <Setter Property="BackgroundColor" Value="LightSteelBlue"/>
+                <Setter Property="CornerRadius" Value="0"/>
+                <Setter Property="Padding" Value="5"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid ColumnDefinitions="*,*,*,*,*,*" RowDefinitions="*,*,*,*,*,*">
+        <Button Grid.Column="0" Grid.Row="0"/>
+        <Button Grid.Column="1" Grid.Row="0"/>
+        <Button Grid.Column="2" Grid.Row="0"/>
+        <Button Grid.Column="3" Grid.Row="0"/>
+        <Button Grid.Column="4" Grid.Row="0"/>
+        <Button Grid.Column="5" Grid.Row="0"/>
+
+        <Button Grid.Column="0" Grid.Row="1"/>
+        <Button Grid.Column="1" Grid.Row="1"/>
+        <Button Grid.Column="2" Grid.Row="1"/>
+        <Button Grid.Column="3" Grid.Row="1"/>
+        <Button Grid.Column="4" Grid.Row="1"/>
+        <Button Grid.Column="5" Grid.Row="1"/>
+
+        <Button Grid.Column="0" Grid.Row="2"/>
+        <Button Grid.Column="1" Grid.Row="2"/>
+        <Button Grid.Column="2" Grid.Row="2"/>
+        <Button Grid.Column="3" Grid.Row="2"/>
+        <Button Grid.Column="4" Grid.Row="2"/>
+        <Button Grid.Column="5" Grid.Row="2"/>
+
+        <Button Grid.Column="0" Grid.Row="3"/>
+        <Button Grid.Column="1" Grid.Row="3"/>
+        <Button Grid.Column="2" Grid.Row="3"/>
+        <Button Grid.Column="3" Grid.Row="3"/>
+        <Button Grid.Column="4" Grid.Row="3"/>
+        <Button Grid.Column="5" Grid.Row="3"/>
+
+        <Button Grid.Column="0" Grid.Row="4"/>
+        <Button Grid.Column="1" Grid.Row="4"/>
+        <Button Grid.Column="2" Grid.Row="4"/>
+        <Button Grid.Column="3" Grid.Row="4"/>
+        <Button Grid.Column="4" Grid.Row="4"/>
+        <Button Grid.Column="5" Grid.Row="4"/>
+
+        <Button Text="Start Game" Grid.Column="4" Grid.Row="5" Style="{StaticResource Key=special-button}"/>
+        <Button Text="Switch Turn" Grid.Column="5" Grid.Row="5" Style="{StaticResource Key=special-button}"/>
+
+        <Border Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="2" Stroke="darkblue">
+            <Grid ColumnDefinitions="*,*" RowDefinitions="*,*" Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="2">
+                <Label Text="Player A Score:" Grid.Column="0" Grid.Row="0" HorizontalOptions="Center"/>
+                <Label Text="Player B Score:" Grid.Column="1" Grid.Row="0" HorizontalOptions="Center"/>
+                <Label x:Name="lblAScore" Grid.Column="0" Grid.Row="1" HorizontalOptions="Center"/>
+                <Label x:Name="lblBScore" Grid.Column="1" Grid.Row="1" HorizontalOptions="Center"/>
+            </Grid>
+        </Border>
+        <Label x:Name="lblMessage" Text="Click Start Game" HorizontalOptions="Center" VerticalOptions="Center" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2"/>
+    </Grid>
+</ContentPage>
