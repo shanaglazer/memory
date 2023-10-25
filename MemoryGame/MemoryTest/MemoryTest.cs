@@ -19,24 +19,15 @@ namespace MemoryTest
             TestContext.WriteLine(msg);
         }
 
-        //public void TestStartGame()
-        //{
-        //    Game game = new();
-        //    game.StartGame();
-        //    string msg = $"game status = {game.GameStatus.ToString()} current turn = {game.CurrentTurn.ToString()} num spots = {game.Spots.Count}";
-        //    Assert.IsTrue(game.GameStatus == Game.GameStatusEnum.Playing && game.CurrentTurn == Game.TurnEnum.X && game.Spots.Count == 9, msg);
-        //    TestContext.WriteLine(msg);
-        //}
-
         //[Test]
-        //public void TestTakeSpot()
+        //public void TestTakeTurn()
         //{
         //    Game game = new();
         //    game.StartGame();
-        //    game.TakeSpot(0);
-        //    string msg = $"spot 0 = {game.Spots[0].SpotValue.ToString()} current turn = {game.CurrentTurn.ToString()}";
-        //    Assert.IsTrue(game.Spots[0].SpotValue == Game.TurnEnum.X && game.CurrentTurn == Game.TurnEnum.O, msg);
-        //    TestContext.WriteLine(msg);
+        //    //game.TakeTurn();
+        //    //string msg = $"spot 0 = {game.Spots[0].SpotValue.ToString()} current turn = {game.CurrentTurn.ToString()}";
+        //    //Assert.IsTrue(game.Spots[0].SpotValue == Game.TurnEnum.X && game.CurrentTurn == Game.TurnEnum.O, msg);
+        //    //TestContext.WriteLine(msg);
         //}
 
         //[Test]

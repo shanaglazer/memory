@@ -1,7 +1,5 @@
 ﻿using System.ComponentModel;
-using System.Reflection.Emit;
 using System.Runtime.CompilerServices;
-using static System.Formats.Asn1.AsnWriter;
 
 namespace MemorySystem
 {
@@ -10,6 +8,7 @@ namespace MemorySystem
         public enum GameStatusEnum { NotStarted, Playing, Winner }
         public enum TurnEnum { None, A, B }
 
+        public bool EnableBtnSwitch = false;
         bool pair = false;
         private TurnEnum _currentturn = TurnEnum.None;
         private GameStatusEnum _gamestatus = GameStatusEnum.NotStarted;
@@ -46,16 +45,15 @@ namespace MemorySystem
             }
         }
         public string GameStatusDesc 
-        { get => SetMessageLabel();
-            //get => this.CurrentTurn == 
-            //    TurnEnum.None ? "Click Start Game" : 
-            //    "Current turn: Player " + this.CurrentTurn; 
+        { 
+            get => SetMessageLabel();
         }
         public TurnEnum Winner { get; private set; }
         public int ScoreA { get; private set; } = 0;
         public int ScoreB { get; private set; } = 0;
         public System.Drawing.Color CardFontColor { get; set; } = System.Drawing.Color.CornflowerBlue;
         public System.Drawing.Color OpenCardBackColor { get; set; } = System.Drawing.Color.White;
+        public System.Drawing.Color WinnerBackcolor { get; set; } = System.Drawing.Color.DarkBlue;
 
         public void StartGame()
         {
@@ -65,18 +63,6 @@ namespace MemorySystem
             GiveCardLetter();
             Cards.ForEach(c => c.Enabled = true);
         }
-
-        //private void Score()
-        //{
-        //    if(CurrentTurn == TurnEnum.A)
-        //    {
-        //        ScoreA++;
-        //    }
-        //    if(CurrentTurn == TurnEnum.B)
-        //    {
-        //        ScoreB++;
-        //    }
-        //}
 
         private void GiveCardLetter()
         {
@@ -95,14 +81,59 @@ namespace MemorySystem
             }
         }
 
-        public void ShowCard()
+        public void TakeTurn(Card card)
         {
-            //im ze klaf sheni veset - likro le score + enabled = false;
+            if (ButtonsClicked() < 2)
+            {
+                card.BackColor = OpenCardBackColor;
+            }
+            if (ButtonsClicked() == 2)
+            {
+                EnableBtnSwitch = true;
+            }
         }
 
+        private int ButtonsClicked()
+        {
+            return Cards.Where(btn => btn.BackColor == OpenCardBackColor).Count();
+        }
+
+        public void SwitchTurn()
+        {
+            pair = false;
+            List<Card> lstcheckb = Cards.Where(b => b.BackColor == OpenCardBackColor).ToList();
+            if (lstcheckb[0].CardText.ToLower() == lstcheckb[1].CardText.ToLower())
+            {
+                pair = true;
+                switch (CurrentTurn)
+                {
+                    case TurnEnum.A:
+                        ScoreA++;
+                        break;
+                    case TurnEnum.B:
+                        ScoreB++;
+                        break;
+                }
+                Cards.Where(btn => btn.BackColor == OpenCardBackColor).ToList().ForEach(btn => btn.Enabled = false);
+                //lstcheckb.ForEach(b => b.Enabled = false);
+            }
+            SetCurrentTurn();//lidog shepo gam mishtane lblmessage! invoke message
+            Cards.ForEach(b => b.BackColor = CardFontColor);
+            EnableBtnSwitch = false;
+            //in FE - btnswitch = disabled
+        }
         private void DetectWinner()
         {
-
+            if (ScoreA > ScoreB)
+            {
+                Winner = TurnEnum.A;
+                //lbl backcolor = WinnerBackcolor
+            }
+            else if (ScoreB > ScoreA)
+            {
+                //lbl backcolor = WinnerBackcolor
+                Winner = TurnEnum.B;
+            }
         }
 
         private void SetCurrentTurn()
@@ -116,35 +147,13 @@ namespace MemorySystem
             string msg = pair == false ? message : "You got it! " + message;
             if (Cards.Where(b => b.Enabled == true).ToList().Count() == 0)
             {
-                msg = "Winner is " + Winner.ToString() + ". Click Start Game";
-                //in FE winnermode() = enable btnStartGame;
+                DetectWinner();
+                msg = "Winner is player " + Winner.ToString() + ". Click Start Game";
+                Cards.Clear();
+                //in FE winnermode() = enable btnStartGame + lblScorewinner.backcolor + switchTurn = disabled;
             }
             pair = false;
             return msg;
-        }
-
-        public void SwitchTurn()
-        {
-            //likro kesheyesh 2 clafim ptuhim;
-            pair = false;
-            List<Card> lstcheckb = new();// Cards.Where(b => b.BackColor == Color.White).ToList();
-            if (lstcheckb[0].CardText.ToLower() == lstcheckb[1].CardText.ToLower())
-            {
-                pair = true;
-                switch (CurrentTurn)
-                {
-                    case TurnEnum.A:
-                        ScoreA++;
-                        break;
-                    case TurnEnum.B:
-                        ScoreB++;
-                        break;
-                }
-                //bind score in FE to score!
-                lstcheckb.ForEach(b => b.Enabled = false);
-            }
-            SetCurrentTurn();
-            //Cards.ForEach(b => b.BackColor = b.ForeColor);
         }
 
         private void InvokePropertyChanged([CallerMemberName] string propertyname = "")

@@ -146,7 +146,6 @@ namespace MemoryGame
             {
                 if (buttonsclicked() < 2)
                 {
-
                     ((Button)sender).BackColor = Color.White;
                 }
             }
