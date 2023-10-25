@@ -54,6 +54,8 @@ namespace MemorySystem
         public TurnEnum Winner { get; private set; }
         public int ScoreA { get; private set; } = 0;
         public int ScoreB { get; private set; } = 0;
+        public System.Drawing.Color CardFontColor { get; set; } = System.Drawing.Color.CornflowerBlue;
+        public System.Drawing.Color OpenCardBackColor { get; set; } = System.Drawing.Color.White;
 
         public void StartGame()
         {
@@ -64,17 +66,17 @@ namespace MemorySystem
             Cards.ForEach(c => c.Enabled = true);
         }
 
-        private void Score()
-        {
-            if(CurrentTurn == TurnEnum.A)
-            {
-                ScoreA++;
-            }
-            if(CurrentTurn == TurnEnum.B)
-            {
-                ScoreB++;
-            }
-        }
+        //private void Score()
+        //{
+        //    if(CurrentTurn == TurnEnum.A)
+        //    {
+        //        ScoreA++;
+        //    }
+        //    if(CurrentTurn == TurnEnum.B)
+        //    {
+        //        ScoreB++;
+        //    }
+        //}
 
         private void GiveCardLetter()
         {
@@ -125,7 +127,7 @@ namespace MemorySystem
         {
             //likro kesheyesh 2 clafim ptuhim;
             pair = false;
-            List<Card> lstcheckb = Cards.Where(b => b.BackColor == Color.White).ToList();
+            List<Card> lstcheckb = new();// Cards.Where(b => b.BackColor == Color.White).ToList();
             if (lstcheckb[0].CardText.ToLower() == lstcheckb[1].CardText.ToLower())
             {
                 pair = true;
@@ -142,7 +144,7 @@ namespace MemorySystem
                 lstcheckb.ForEach(b => b.Enabled = false);
             }
             SetCurrentTurn();
-            Cards.ForEach(b => b.BackColor = b.ForeColor);
+            //Cards.ForEach(b => b.BackColor = b.ForeColor);
         }
 
         private void InvokePropertyChanged([CallerMemberName] string propertyname = "")

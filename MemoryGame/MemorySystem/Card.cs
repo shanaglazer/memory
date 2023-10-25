@@ -6,9 +6,9 @@ namespace MemorySystem
     {
         List<string> lstletters = new() { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" };
         string _cardtext = "";
-        Color _backcolor;
+        System.Drawing.Color _backcolor;
         //List<Button> lstbuttons;
-        Card()
+        public Card()
         {
 
         }
@@ -30,7 +30,7 @@ namespace MemorySystem
             {
                 _backcolor = value;
             }
-        }
+        } 
 
         public Microsoft.Maui.Graphics.Color BackColorMaui
         {
