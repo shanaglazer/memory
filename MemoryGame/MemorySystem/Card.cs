@@ -4,14 +4,9 @@ namespace MemorySystem
 {
     public class Card
     {
-        List<string> lstletters = new() { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" };
         string _cardtext = "";
         System.Drawing.Color _backcolor;
-        //List<Button> lstbuttons;
-        public Card()
-        {
 
-        }
         public string CardText
         {
             get => _cardtext;
@@ -30,7 +25,7 @@ namespace MemorySystem
             {
                 _backcolor = value;
             }
-        } 
+        } //= Game.CardFontColor;
 
         public Microsoft.Maui.Graphics.Color BackColorMaui
         {
