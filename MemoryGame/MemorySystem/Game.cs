@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
 namespace MemorySystem
@@ -12,19 +13,36 @@ namespace MemorySystem
         bool pair = false;
         private TurnEnum _currentturn = TurnEnum.None;
         private GameStatusEnum _gamestatus = GameStatusEnum.NotStarted;
-        List<string> lstletters = new() { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" };
+        
         Random rnd = new();
         public event PropertyChangedEventHandler? PropertyChanged;
 
         public Game()
         {
+            SetCards();
+            //lstCards.Clear();
+            //for (int i = 0; i < 30; i++)
+            //{
+            //    Card c = new();
+            //    c.Enabled = true;
+            //    c.BackColor = CardFontColor;
+            //    this.lstCards.Add(c);
+            //}
+        }
+
+        public void SetCards()
+        {
+            lstCards.Clear();
             for (int i = 0; i < 30; i++)
             {
-                this.lstCards.Add(new Card());
+                Card c = new();
+                c.Enabled = false;
+                c.BackColor = CardFontColor;
+                this.lstCards.Add(c);
             }
-
         }
-        public List<Card> lstCards { get; private set; } = new();
+
+        public List<Card> lstCards { get; set; } = new();
         public GameStatusEnum GameStatus
         {
             get => _gamestatus;
@@ -48,7 +66,7 @@ namespace MemorySystem
         {
             get => SetMessageLabel();
         }
-        public TurnEnum Winner { get; private set; }
+        public TurnEnum Winner { get; private set; } = TurnEnum.None;
         public int ScoreA { get; private set; } = 0;
         public int ScoreB { get; private set; } = 0;
         public System.Drawing.Color CardFontColor { get; set; } = System.Drawing.Color.CornflowerBlue;
@@ -57,6 +75,7 @@ namespace MemorySystem
 
         public void StartGame()
         {
+            //SetCards();
             GameStatus = GameStatusEnum.Playing;
             CurrentTurn = TurnEnum.A;
             //in FE btnStartGame = disabled
@@ -68,18 +87,20 @@ namespace MemorySystem
                         c.Enabled = true;
                         c.BackColor = CardFontColor;
                     }
-                );
+                );  //i added it to the i.c. - make sure it works.
+            //lstCards.ForEach(c => c.Enabled = true);
         }
 
         private void GiveCardLetter()
         {
             List<int> indexes = new() { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29 };
-            List<string> lstl = lstletters;
+            List<string> lstl = new() { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" };
+            //List<string> lstl = lstletters;
             for (int i = 0; i < 15; i++)
             {
                 int c = rnd.Next(lstl.Count());
                 int a = indexes[rnd.Next(indexes.Count())];
-                lstCards[a].CardText = lstl[c].ToString();
+                lstCards[a].CardText = lstl[c];
                 indexes.Remove(a);
                 int b = indexes[rnd.Next(indexes.Count())];
                 lstCards[b].CardText = lstl[c].ToUpper().ToString();
@@ -111,23 +132,27 @@ namespace MemorySystem
         {
             pair = false;
             List<Card> lstcheckb = lstCards.Where(b => b.BackColor == OpenCardBackColor).ToList();
-            if (lstcheckb[0].CardText.ToLower() == lstcheckb[1].CardText.ToLower())
+            if (lstcheckb.Count > 1)
             {
-                pair = true;
-                switch (CurrentTurn)
+                if (lstcheckb[0].CardText.ToLower() == lstcheckb[1].CardText.ToLower())
                 {
-                    case TurnEnum.A:
-                        ScoreA++;
-                        break;
-                    case TurnEnum.B:
-                        ScoreB++;
-                        break;
+                    pair = true;
+                    switch (CurrentTurn)
+                    {
+                        case TurnEnum.A:
+                            ScoreA++;
+                            break;
+                        case TurnEnum.B:
+                            ScoreB++;
+                            break;
+                    }
+                    lstCards.Where(btn => btn.BackColor == OpenCardBackColor).ToList().ForEach(btn => btn.Enabled = false);
                 }
-                lstCards.Where(btn => btn.BackColor == OpenCardBackColor).ToList().ForEach(btn => btn.Enabled = false);
+                //lstCards.Where(btn => btn.BackColor == OpenCardBackColor).ToList().ForEach(btn => btn.Enabled = true);
                 //lstcheckb.ForEach(b => b.Enabled = false);
             }
             SetCurrentTurn();//lidog shepo gam mishtane lblmessage! invoke message
-            lstCards.ForEach(b => b.BackColor = CardFontColor);
+            lstCards.ForEach(b => { b.BackColor = CardFontColor; b.FontColor = CardFontColor; });
             EnableBtnSwitch = false;
             //in FE - btnswitch = disabled
         }
@@ -157,7 +182,7 @@ namespace MemorySystem
             if (lstCards.Where(b => b.Enabled == true).ToList().Count() == 0)
             {
                 DetectWinner();
-                msg = "Winner is player " + Winner.ToString() + ". Click Start Game";
+                msg = (this.Winner != TurnEnum.None? "Winner is player " + Winner.ToString() + ". ":"") + "Click Start Game";
                 lstCards.Clear();
                 //in FE winnermode() = enable btnStartGame + lblScorewinner.backcolor + switchTurn = disabled;
             }

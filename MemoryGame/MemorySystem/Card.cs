@@ -1,20 +1,23 @@
-﻿using System.Drawing;
+﻿using System.ComponentModel;
+using System.Drawing;
+using System.Runtime.CompilerServices;
 
 namespace MemorySystem
 {
-    public class Card
+    public class Card : INotifyPropertyChanged
     {
         string _cardtext = "";
         System.Drawing.Color _backcolor;
-
+        public event PropertyChangedEventHandler? PropertyChanged;
         public string CardText
         {
-            get => _cardtext;
-            set
-            {
-                _cardtext = value;
-            }
-        }
+            get => _cardtext; 
+            set 
+            { 
+                _cardtext = value; 
+                InvokePropertyChanged(); 
+            }//lo betucha shetzarih po aroch!
+        } 
 
         public bool Enabled { get; set; } = false;
 
@@ -24,8 +27,10 @@ namespace MemorySystem
             set
             {
                 _backcolor = value;
+                InvokePropertyChanged();
             }
         } //= Game.CardFontColor;
+        public System.Drawing.Color FontColor { get; set; } = System.Drawing.Color.CornflowerBlue;
 
         public Microsoft.Maui.Graphics.Color BackColorMaui
         {
@@ -40,6 +45,10 @@ namespace MemorySystem
             float alpha = systemColor.A / 255f;
 
             return new Microsoft.Maui.Graphics.Color(red, green, blue, alpha);
+        }
+        private void InvokePropertyChanged([CallerMemberName] string propertyname = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyname));
         }
     }
 }
