@@ -38,7 +38,7 @@ namespace MemorySystem
                 Card c = new();
                 c.Enabled = false;
                 c.BackColor = CardFontColor;
-                this.lstCards.Add(c);
+                lstCards.Add(c);
             }
         }
 
