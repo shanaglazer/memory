@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Maui.Graphics;
+using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
@@ -142,7 +143,7 @@ namespace MemorySystem
                             ScoreB++;
                             break;
                     }
-                    lstCards.Where(btn => btn.BackColor == OpenCardBackColor).ToList().ForEach(btn => btn.Enabled = false);
+                    lstCards.Where(btn => btn.BackColor == OpenCardBackColor).ToList().ForEach(btn => { btn.Enabled = false; btn.CardText = "!"; btn.FontColor = System.Drawing.Color.White; });
                 }
          
                 //lstcheckb.ForEach(b => b.Enabled = false);

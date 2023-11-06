@@ -6,7 +6,9 @@ namespace MemorySystem
 {
     public class Card : INotifyPropertyChanged
     {
+        bool _enabled = false;
         string _cardtext = "";
+        System.Drawing.Color _fontcolor = System.Drawing.Color.CornflowerBlue;
         System.Drawing.Color _backcolor;
         public event PropertyChangedEventHandler? PropertyChanged;
         public string CardText
@@ -19,7 +21,7 @@ namespace MemorySystem
             }//lo betucha shetzarih po aroch!
         } 
 
-        public bool Enabled { get; set; } = false;
+        public bool Enabled { get=>_enabled; set { _enabled = value; InvokePropertyChanged(); } }
 
         public System.Drawing.Color BackColor
         {
@@ -31,7 +33,7 @@ namespace MemorySystem
                 InvokePropertyChanged("BackColorMaui");
             }
         } //= Game.CardFontColor;
-        public System.Drawing.Color FontColor { get; set; } = System.Drawing.Color.CornflowerBlue;
+        public System.Drawing.Color FontColor { get=>_fontcolor; set { _fontcolor = value; InvokePropertyChanged(); InvokePropertyChanged("BackColorMaui"); } }
 
         public Microsoft.Maui.Graphics.Color BackColorMaui
         {
