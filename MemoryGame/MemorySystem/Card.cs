@@ -28,6 +28,7 @@ namespace MemorySystem
             {
                 _backcolor = value;
                 InvokePropertyChanged();
+                InvokePropertyChanged("BackColorMaui");
             }
         } //= Game.CardFontColor;
         public System.Drawing.Color FontColor { get; set; } = System.Drawing.Color.CornflowerBlue;
