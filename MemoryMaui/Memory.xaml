@@ -15,52 +15,52 @@
     </ContentPage.Resources>
 
     <Grid ColumnDefinitions="*,*,*,*,*,*" RowDefinitions="*,*,*,*,*,*">
-        <Button Grid.Column="0" Grid.Row="0"/>
-        <Button Grid.Column="1" Grid.Row="0"/>
-        <Button Grid.Column="2" Grid.Row="0"/>
-        <Button Grid.Column="3" Grid.Row="0"/>
-        <Button Grid.Column="4" Grid.Row="0"/>
-        <Button Grid.Column="5" Grid.Row="0"/>
+        <Button x:Name="btn1" Grid.Column="0" Grid.Row="0" Clicked="Button_Clicked" BindingContext="{Binding lstCards[0]}" Text="{Binding CardText}" BackgroundColor="{Binding BackColorMaui}" IsEnabled="{Binding Enabled}" TextColor="{Binding FontColorMaui}"/>
+        <Button x:Name="btn2" Grid.Column="1" Grid.Row="0" Clicked="Button_Clicked" BindingContext="{Binding lstCards[1]}" Text="{Binding CardText}" BackgroundColor="{Binding BackColorMaui}" IsEnabled="{Binding Enabled}" TextColor="{Binding FontColorMaui}"/>
+        <Button x:Name="btn3" Grid.Column="2" Grid.Row="0" Clicked="Button_Clicked" BindingContext="{Binding lstCards[2]}" Text="{Binding CardText}" BackgroundColor="{Binding BackColorMaui}" IsEnabled="{Binding Enabled}" TextColor="{Binding FontColorMaui}"/>
+        <Button x:Name="btn4" Grid.Column="3" Grid.Row="0" Clicked="Button_Clicked" BindingContext="{Binding lstCards[3]}" Text="{Binding CardText}" BackgroundColor="{Binding BackColorMaui}" IsEnabled="{Binding Enabled}" TextColor="{Binding FontColorMaui}"/>
+        <Button x:Name="btn5" Grid.Column="4" Grid.Row="0" Clicked="Button_Clicked" BindingContext="{Binding lstCards[4]}" Text="{Binding CardText}" BackgroundColor="{Binding BackColorMaui}" IsEnabled="{Binding Enabled}" TextColor="{Binding FontColorMaui}"/>
+        <Button x:Name="btn6" Grid.Column="5" Grid.Row="0" Clicked="Button_Clicked" BindingContext="{Binding lstCards[5]}" Text="{Binding CardText}" BackgroundColor="{Binding BackColorMaui}" IsEnabled="{Binding Enabled}" TextColor="{Binding FontColorMaui}"/>
+                                                                                    
+        <Button x:Name="btn7" Grid.Column="0" Grid.Row="1" Clicked="Button_Clicked" BindingContext="{Binding lstCards[6]}" Text="{Binding CardText}" BackgroundColor="{Binding BackColorMaui}" IsEnabled="{Binding Enabled}" TextColor="{Binding FontColorMaui}"/>
+        <Button x:Name="btn8" Grid.Column="1" Grid.Row="1" Clicked="Button_Clicked" BindingContext="{Binding lstCards[7]}" Text="{Binding CardText}" BackgroundColor="{Binding BackColorMaui}" IsEnabled="{Binding Enabled}" TextColor="{Binding FontColorMaui}"/>
+        <Button x:Name="btn9" Grid.Column="2" Grid.Row="1" Clicked="Button_Clicked" BindingContext="{Binding lstCards[8]}" Text="{Binding CardText}" BackgroundColor="{Binding BackColorMaui}" IsEnabled="{Binding Enabled}" TextColor="{Binding FontColorMaui}"/>
+        <Button x:Name="btn10" Grid.Column="3" Grid.Row="1" Clicked="Button_Clicked" BindingContext="{Binding lstCards[9]}" Text="{Binding CardText}" BackgroundColor="{Binding BackColorMaui}" IsEnabled="{Binding Enabled}" TextColor="{Binding FontColorMaui}"/>
+        <Button x:Name="btn11" Grid.Column="4" Grid.Row="1" Clicked="Button_Clicked" BindingContext="{Binding lstCards[10]}" Text="{Binding CardText}" BackgroundColor="{Binding BackColorMaui}" IsEnabled="{Binding Enabled}" TextColor="{Binding FontColorMaui}"/>
+        <Button x:Name="btn12" Grid.Column="5" Grid.Row="1" Clicked="Button_Clicked" BindingContext="{Binding lstCards[11]}" Text="{Binding CardText}" BackgroundColor="{Binding BackColorMaui}" IsEnabled="{Binding Enabled}" TextColor="{Binding FontColorMaui}"/>
+                                                                                     
+        <Button x:Name="btn13" Grid.Column="0" Grid.Row="2" Clicked="Button_Clicked" BindingContext="{Binding lstCards[12]}" Text="{Binding CardText}" BackgroundColor="{Binding BackColorMaui}" IsEnabled="{Binding Enabled}" TextColor="{Binding FontColorMaui}"/>
+        <Button x:Name="btn14" Grid.Column="1" Grid.Row="2" Clicked="Button_Clicked" BindingContext="{Binding lstCards[13]}" Text="{Binding CardText}" BackgroundColor="{Binding BackColorMaui}" IsEnabled="{Binding Enabled}" TextColor="{Binding FontColorMaui}"/>
+        <Button x:Name="btn15" Grid.Column="2" Grid.Row="2" Clicked="Button_Clicked" BindingContext="{Binding lstCards[14]}" Text="{Binding CardText}" BackgroundColor="{Binding BackColorMaui}" IsEnabled="{Binding Enabled}" TextColor="{Binding FontColorMaui}"/>
+        <Button x:Name="btn16" Grid.Column="3" Grid.Row="2" Clicked="Button_Clicked" BindingContext="{Binding lstCards[15]}" Text="{Binding CardText}" BackgroundColor="{Binding BackColorMaui}" IsEnabled="{Binding Enabled}" TextColor="{Binding FontColorMaui}"/>
+        <Button x:Name="btn17" Grid.Column="4" Grid.Row="2" Clicked="Button_Clicked" BindingContext="{Binding lstCards[16]}" Text="{Binding CardText}" BackgroundColor="{Binding BackColorMaui}" IsEnabled="{Binding Enabled}" TextColor="{Binding FontColorMaui}"/>
+        <Button x:Name="btn18" Grid.Column="5" Grid.Row="2" Clicked="Button_Clicked" BindingContext="{Binding lstCards[17]}" Text="{Binding CardText}" BackgroundColor="{Binding BackColorMaui}" IsEnabled="{Binding Enabled}" TextColor="{Binding FontColorMaui}"/>
+                                                                                     
+        <Button x:Name="btn19" Grid.Column="0" Grid.Row="3" Clicked="Button_Clicked" BindingContext="{Binding lstCards[18]}" Text="{Binding CardText}" BackgroundColor="{Binding BackColorMaui}" IsEnabled="{Binding Enabled}" TextColor="{Binding FontColorMaui}"/>
+        <Button x:Name="btn20" Grid.Column="1" Grid.Row="3" Clicked="Button_Clicked" BindingContext="{Binding lstCards[19]}" Text="{Binding CardText}" BackgroundColor="{Binding BackColorMaui}" IsEnabled="{Binding Enabled}" TextColor="{Binding FontColorMaui}"/>
+        <Button x:Name="btn21" Grid.Column="2" Grid.Row="3" Clicked="Button_Clicked" BindingContext="{Binding lstCards[20]}" Text="{Binding CardText}" BackgroundColor="{Binding BackColorMaui}" IsEnabled="{Binding Enabled}" TextColor="{Binding FontColorMaui}"/>
+        <Button x:Name="btn22" Grid.Column="3" Grid.Row="3" Clicked="Button_Clicked" BindingContext="{Binding lstCards[21]}" Text="{Binding CardText}" BackgroundColor="{Binding BackColorMaui}" IsEnabled="{Binding Enabled}" TextColor="{Binding FontColorMaui}"/>
+        <Button x:Name="btn23" Grid.Column="4" Grid.Row="3" Clicked="Button_Clicked" BindingContext="{Binding lstCards[22]}" Text="{Binding CardText}" BackgroundColor="{Binding BackColorMaui}" IsEnabled="{Binding Enabled}" TextColor="{Binding FontColorMaui}"/>
+        <Button x:Name="btn24" Grid.Column="5" Grid.Row="3" Clicked="Button_Clicked" BindingContext="{Binding lstCards[23]}" Text="{Binding CardText}" BackgroundColor="{Binding BackColorMaui}" IsEnabled="{Binding Enabled}" TextColor="{Binding FontColorMaui}"/>
+                                                                                     
+        <Button x:Name="btn25" Grid.Column="0" Grid.Row="4" Clicked="Button_Clicked" BindingContext="{Binding lstCards[24]}" Text="{Binding CardText}" BackgroundColor="{Binding BackColorMaui}" IsEnabled="{Binding Enabled}" TextColor="{Binding FontColorMaui}"/>
+        <Button x:Name="btn26" Grid.Column="1" Grid.Row="4" Clicked="Button_Clicked" BindingContext="{Binding lstCards[25]}" Text="{Binding CardText}" BackgroundColor="{Binding BackColorMaui}" IsEnabled="{Binding Enabled}" TextColor="{Binding FontColorMaui}"/>
+        <Button x:Name="btn27" Grid.Column="2" Grid.Row="4" Clicked="Button_Clicked" BindingContext="{Binding lstCards[26]}" Text="{Binding CardText}" BackgroundColor="{Binding BackColorMaui}" IsEnabled="{Binding Enabled}" TextColor="{Binding FontColorMaui}"/>
+        <Button x:Name="btn28" Grid.Column="3" Grid.Row="4" Clicked="Button_Clicked" BindingContext="{Binding lstCards[27]}" Text="{Binding CardText}" BackgroundColor="{Binding BackColorMaui}" IsEnabled="{Binding Enabled}" TextColor="{Binding FontColorMaui}"/>
+        <Button x:Name="btn29" Grid.Column="4" Grid.Row="4" Clicked="Button_Clicked" BindingContext="{Binding lstCards[28]}" Text="{Binding CardText}" BackgroundColor="{Binding BackColorMaui}" IsEnabled="{Binding Enabled}" TextColor="{Binding FontColorMaui}"/>
+        <Button x:Name="btn30" Grid.Column="5" Grid.Row="4" Clicked="Button_Clicked" BindingContext="{Binding lstCards[29]}" Text="{Binding CardText}" BackgroundColor="{Binding BackColorMaui}" IsEnabled="{Binding Enabled}" TextColor="{Binding FontColorMaui}"/>
 
-        <Button Grid.Column="0" Grid.Row="1"/>
-        <Button Grid.Column="1" Grid.Row="1"/>
-        <Button Grid.Column="2" Grid.Row="1"/>
-        <Button Grid.Column="3" Grid.Row="1"/>
-        <Button Grid.Column="4" Grid.Row="1"/>
-        <Button Grid.Column="5" Grid.Row="1"/>
-
-        <Button Grid.Column="0" Grid.Row="2"/>
-        <Button Grid.Column="1" Grid.Row="2"/>
-        <Button Grid.Column="2" Grid.Row="2"/>
-        <Button Grid.Column="3" Grid.Row="2"/>
-        <Button Grid.Column="4" Grid.Row="2"/>
-        <Button Grid.Column="5" Grid.Row="2"/>
-
-        <Button Grid.Column="0" Grid.Row="3"/>
-        <Button Grid.Column="1" Grid.Row="3"/>
-        <Button Grid.Column="2" Grid.Row="3"/>
-        <Button Grid.Column="3" Grid.Row="3"/>
-        <Button Grid.Column="4" Grid.Row="3"/>
-        <Button Grid.Column="5" Grid.Row="3"/>
-
-        <Button Grid.Column="0" Grid.Row="4"/>
-        <Button Grid.Column="1" Grid.Row="4"/>
-        <Button Grid.Column="2" Grid.Row="4"/>
-        <Button Grid.Column="3" Grid.Row="4"/>
-        <Button Grid.Column="4" Grid.Row="4"/>
-        <Button Grid.Column="5" Grid.Row="4"/>
-
-        <Button Text="Start Game" Grid.Column="4" Grid.Row="5" Style="{StaticResource Key=special-button}"/>
-        <Button Text="Switch Turn" Grid.Column="5" Grid.Row="5" Style="{StaticResource Key=special-button}"/>
+        <Button x:Name="StartGameBtn" Text="Start Game" Grid.Column="4" Grid.Row="5" Style="{StaticResource Key=special-button}" Clicked="Button_Clicked_Start"/>
+        <Button x:Name="SwitchTurnBtn" Text="Switch Turn" Grid.Column="5" Grid.Row="5" Style="{StaticResource Key=special-button}" Clicked="Button_Clicked_Switch"/>
 
         <Border Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="2" Stroke="darkblue">
             <Grid ColumnDefinitions="*,*" RowDefinitions="*,*" Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="2">
                 <Label Text="Player A Score:" Grid.Column="0" Grid.Row="0" HorizontalOptions="Center"/>
                 <Label Text="Player B Score:" Grid.Column="1" Grid.Row="0" HorizontalOptions="Center"/>
-                <Label x:Name="lblAScore" Grid.Column="0" Grid.Row="1" HorizontalOptions="Center"/>
-                <Label x:Name="lblBScore" Grid.Column="1" Grid.Row="1" HorizontalOptions="Center"/>
+                <Label x:Name="lblAScore" Grid.Column="0" Grid.Row="1" HorizontalOptions="Center" Text="{Binding ScoreA}"/>
+                <Label x:Name="lblBScore" Grid.Column="1" Grid.Row="1" HorizontalOptions="Center" Text="{Binding ScoreB}"/>
             </Grid>
         </Border>
-        <Label x:Name="lblMessage" Text="Click Start Game" HorizontalOptions="Center" VerticalOptions="Center" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2"/>
+        <Label x:Name="lblMessage" HorizontalOptions="Center" VerticalOptions="Center" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2" Text="{Binding GameStatusDesc}"/>
     </Grid>
 </ContentPage>

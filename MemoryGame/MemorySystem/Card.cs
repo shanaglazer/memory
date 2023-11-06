@@ -37,6 +37,11 @@ namespace MemorySystem
             get => this.ConvertToMauiColor(this.BackColor);
         }
 
+        public Microsoft.Maui.Graphics.Color FontColorMaui
+        {
+            get => this.ConvertToMauiColor(this.FontColor);
+        }
+
         private Microsoft.Maui.Graphics.Color ConvertToMauiColor(System.Drawing.Color systemColor)
         {
             float red = systemColor.R / 255f;
