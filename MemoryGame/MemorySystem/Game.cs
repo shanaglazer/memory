@@ -13,7 +13,9 @@ namespace MemorySystem
         bool pair = false;
         private TurnEnum _currentturn = TurnEnum.None;
         private GameStatusEnum _gamestatus = GameStatusEnum.NotStarted;
-        
+        private int _scorea = 0;
+        private int _scoreb = 0;
+
         Random rnd = new();
         public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -47,8 +49,8 @@ namespace MemorySystem
             get => SetMessageLabel();
         }
         public TurnEnum Winner { get; private set; } = TurnEnum.None;
-        public int ScoreA { get; private set; } = 0;
-        public int ScoreB { get; private set; } = 0;
+        public int ScoreA { get => _scorea; private set { _scorea = value; InvokePropertyChanged(); } }
+        public int ScoreB { get => _scoreb; private set { _scoreb = value; InvokePropertyChanged(); } }
         public System.Drawing.Color CardFontColor { get; set; } = System.Drawing.Color.CornflowerBlue;
         public System.Drawing.Color OpenCardBackColor { get; set; } = System.Drawing.Color.White;
         public System.Drawing.Color WinnerBackcolor { get; set; } = System.Drawing.Color.DarkBlue;
@@ -80,7 +82,8 @@ namespace MemorySystem
                         c.Enabled = true;
                         c.BackColor = CardFontColor;
                     }
-                );  
+                );
+            InvokePropertyChanged("GameStatusDesc");
             //lstCards.ForEach(c => c.Enabled = true);
         }
 
