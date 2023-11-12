@@ -33,7 +33,7 @@ namespace MemorySystem
                 InvokePropertyChanged("BackColorMaui");
             }
         } //= Game.CardFontColor;
-        public System.Drawing.Color FontColor { get=>_fontcolor; set { _fontcolor = value; InvokePropertyChanged(); InvokePropertyChanged("BackColorMaui"); } }
+        public System.Drawing.Color FontColor { get=>_fontcolor; set { _fontcolor = value; InvokePropertyChanged(); InvokePropertyChanged("FontColorMaui"); } }
 
         public Microsoft.Maui.Graphics.Color BackColorMaui
         {
