@@ -150,6 +150,7 @@ namespace MemorySystem
                 //lstcheckb.ForEach(b => b.Enabled = false);
             }
             SetCurrentTurn();
+            SetMessageLabel();
            // lstCards.Where(btn => btn.BackColor == OpenCardBackColor).ToList().ForEach(b => { b.FontColor = CardFontColor; });
             lstCards.ForEach(b => { b.BackColor = CardFontColor; });
             EnableBtnSwitch = false;
