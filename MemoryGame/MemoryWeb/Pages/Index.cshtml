@@ -3,41 +3,56 @@
 @{
     ViewData["Title"] = "Home page";
 }
-
+<main>
 <div>
-    <p>
+    <div class="col bg-body-tertiary p-3 rounded-4 text-center text-black">
         <h1>Software Requirements for Memory</h1>
         <h2>Memory</h2>
         Created by Shana Glazer
-        <h4>Overview</h4>
-        This document describes requirements for the software implementation of the classic game of memory.
-        This software will allow two players to play against each other. A description of the game plus the
-        requirements of this implementation are provided below.
-        
-        <h4>The game</h4>
-        Two players are presented with 30 playing cards. The players take turns opening a pair of cards. Player
-        who picks two cards of the same letter – one uppercase and one lowercase gets a point. The winner is
-        the player with the most points when the cards are finished. No way of ending the game with a tie.
-        <h2>Software implementation</h2>
-        <h4>UI elements</h4>
-        The software will present the memory game with the UI elements listed below.
-        5x6 Grid of buttons
-        Start game button
-        Two score labels - one for player
-        Label to display messages – players turn, matching pair, and winner.
-        
-        <h4>Player modes</h4>
-        There is just one mode in this game – two players. Each player has a turn to click on two cards and if he
-        gets a pair the score goes up by a point.
-        <h2>Software requirements for memory</h2>
-        <h4>Game process and rules</h4>
-        1. The game starts when the player clicks Start. Until then all buttons should be disabled. The
-        message label should say “Click Start to begin the game”.
-        2. After Start is clicked: “Player A” is displayed. A takes turn by clicking two buttons, the cards
-        stay opened for 5 sec’. Message switches to “Player B”.
-        3. When there is a pair – Message “You got it!” + players turn. Score goes up. Buttons should
-        become enabled.
-        4. When all buttons are clicked display winner. Winners score label should switch colors.
-        5. During the game the Start button should be disabled.
-    </p>
+    </div>
+    <h4>Overview</h4>
+    This document describes requirements for the software implementation of the classic game of memory.
+    This software will allow two players to play against each other. A description of the game plus the
+    requirements of this implementation are provided below.
+
+    <h4>The game</h4>
+    Two players are presented with 30 playing cards. The players take turns opening a pair of cards. Player
+    who picks two cards of the same letter – one uppercase and one lowercase gets a point. The winner is
+    the player with the most points when the cards are finished. No way of ending the game with a tie.
+    <h3>Software implementation</h3>
+    <h4>UI elements</h4>
+    The software will present the memory game with the UI elements listed below.
+    5x6 Grid of buttons
+    Start game button
+    Two score labels - one for player
+    Label to display messages – players turn, matching pair, and winner.
+
+    <h4>Player modes</h4>
+    There is just one mode in this game – two players. Each player has a turn to click on two cards and if he
+    gets a pair the score goes up by a point.
+    <h3>Software requirements for memory</h3>
+    <h4>Game process and rules</h4>
+    <ol>
+    <li>The game starts when the player clicks Start. Until then all buttons should be disabled. The
+            message label should say “Click Start to begin the game”.
+        </li>
+    <li>After Start is clicked: “Player A” is displayed. A takes turn by clicking two buttons, the cards
+            stay opened for 5 sec’. Message switches to “Player B”.
+            <br />
+        </li>
+    <li>When there is a pair – Message “You got it!” + players turn. Score goes up. Buttons should
+            become enabled.
+            <br />
+        </li>
+    <li>When all buttons are clicked display winner. Winners score label should switch colors.
+            <br />
+        </li>
+    <li>During the game the Start button should be disabled.
+            <br />
+        </li>
+    </ol>
 </div>
+
+    <img class="img-fluid" src="/images/memorywireframe.png" alt="Wireframe"/>
+
+</main>
