@@ -6,4 +6,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MemorySystem\MemorySystem.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -13,8 +13,8 @@
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
-
-    <Grid ColumnDefinitions="*,*,*,*,*,*" RowDefinitions="*,*,*,*,*,*">
+    
+    <Grid ColumnDefinitions="*,*,*,*,*,*" RowDefinitions="*,*,*,*,*,*,*">
         
         
         <Button x:Name="btn1" Grid.Column="0" Grid.Row="0" Clicked="Button_Clicked" BindingContext="{Binding lstCards[0]}" Text="{Binding CardText}" BackgroundColor="{Binding BackColorMaui}" IsEnabled="{Binding Enabled}" TextColor="{Binding FontColorMaui}"/>
@@ -64,5 +64,10 @@
             </Grid>
         </Border>
         <Label x:Name="lblMessage" HorizontalOptions="Center" VerticalOptions="Center" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2" Text="{Binding GameStatusDesc}"/>
+        <HorizontalStackLayout Grid.Row="6" Grid.Column="0">
+            <RadioButton x:Name="Game1Rb" Content="Game 1" CheckedChanged="Game_CheckedChanged" IsChecked="True"/>
+            <RadioButton x:Name="Game2Rb" Content="Game 2" CheckedChanged="Game_CheckedChanged"/>
+            <RadioButton x:Name="Game3Rb" Content="Game 3" CheckedChanged="Game_CheckedChanged"/>
+        </HorizontalStackLayout>
     </Grid>
 </ContentPage>
