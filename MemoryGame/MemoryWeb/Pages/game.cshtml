@@ -80,7 +80,11 @@
 </div>
 
 <script>
-    let game = new Game();
+    let currentTurn = "A";
+    let aScore = 0;
+    let bScore = 0;
+    let pair = false;
+    let lstLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
     let lstbuttons = [];
     let btnStart = document.querySelector("#btnStart");
     btnStart.addEventListener("click", startGame);
