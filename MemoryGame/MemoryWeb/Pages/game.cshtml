@@ -20,49 +20,49 @@
 <div class="row">
     <table>
         <tr>
-            <td><button class="btn btn-info card"></button></td>
-            <td><button class="btn btn-info card"></button></td>
-            <td><button class="btn btn-info card"></button></td>
-            <td><button class="btn btn-info card"></button></td>
-            <td><button class="btn btn-info card"></button></td>
-            <td><button class="btn btn-info card"></button></td>
-        </tr>           
+            <td><button id="card" class="btn btn-info card"></button></td>
+            <td><button id="card" class="btn btn-info card"></button></td>
+            <td><button id="card" class="btn btn-info card"></button></td>
+            <td><button id="card" class="btn btn-info card"></button></td>
+            <td><button id="card" class="btn btn-info card"></button></td>
+            <td><button id="card" class="btn btn-info card"></button></td>
+        </tr>       
         <tr>            
-            <td><button class="btn btn-info card"></button></td>
-            <td><button class="btn btn-info card"></button></td>
-            <td><button class="btn btn-info card"></button></td>
-            <td><button class="btn btn-info card"></button></td>
-            <td><button class="btn btn-info card"></button></td>
-            <td><button class="btn btn-info card"></button></td>
-        </tr>         
+            <td><button id="card" class="btn btn-info card"></button></td>
+            <td><button id="card" class="btn btn-info card"></button></td>
+            <td><button id="card" class="btn btn-info card"></button></td>
+            <td><button id="card" class="btn btn-info card"></button></td>
+            <td><button id="card" class="btn btn-info card"></button></td>
+            <td><button id="card" class="btn btn-info card"></button></td>
+        </tr>       
+        <tr>           
+            <td><button id="card" class="btn btn-info card"></button></td>
+            <td><button id="card" class="btn btn-info card"></button></td>
+            <td><button id="card" class="btn btn-info card"></button></td>
+            <td><button id="card" class="btn btn-info card"></button></td>
+            <td><button id="card" class="btn btn-info card"></button></td>
+            <td><button id="card" class="btn btn-info card"></button></td>
+        </tr>        
+        <tr>           
+            <td><button id="card" class="btn btn-info card"></button></td>
+            <td><button id="card" class="btn btn-info card"></button></td>
+            <td><button id="card" class="btn btn-info card"></button></td>
+            <td><button id="card" class="btn btn-info card"></button></td>
+            <td><button id="card" class="btn btn-info card"></button></td>
+            <td><button id="card" class="btn btn-info card"></button></td>
+        </tr>        
         <tr>            
-            <td><button class="btn btn-info card"></button></td>
-            <td><button class="btn btn-info card"></button></td>
-            <td><button class="btn btn-info card"></button></td>
-            <td><button class="btn btn-info card"></button></td>
-            <td><button class="btn btn-info card"></button></td>
-            <td><button class="btn btn-info card"></button></td>
-        </tr>          
-        <tr>            
-            <td><button class="btn btn-info card"></button></td>
-            <td><button class="btn btn-info card"></button></td>
-            <td><button class="btn btn-info card"></button></td>
-            <td><button class="btn btn-info card"></button></td>
-            <td><button class="btn btn-info card"></button></td>
-            <td><button class="btn btn-info card"></button></td>
-        </tr>         
-        <tr>            
-            <td><button class="btn btn-info card"></button></td>
-            <td><button class="btn btn-info card"></button></td>
-            <td><button class="btn btn-info card"></button></td>
-            <td><button class="btn btn-info card"></button></td>
-            <td><button class="btn btn-info card"></button></td>
-            <td><button class="btn btn-info card"></button></td>
+            <td><button id="card" class="btn btn-info card"></button></td>
+            <td><button id="card" class="btn btn-info card"></button></td>
+            <td><button id="card" class="btn btn-info card"></button></td>
+            <td><button id="card" class="btn btn-info card"></button></td>
+            <td><button id="card" class="btn btn-info card"></button></td>
+            <td><button id="card" class="btn btn-info card"></button></td>
         </tr>
     </table>
 </div>
 <div class="row">
-    <div class="col-4"><button id="msg">Click Start Game</button></div>
+    <div class="col-4"><p id="msg">Click Start Game</p></div>
     <div class="col-4">
         <table class="">
             <tr>
@@ -87,10 +87,123 @@
     let lstLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
     let lstbuttons = [];
     let btnStart = document.querySelector("#btnStart");
+    let btnSwitch = document.querySelector("#btnSwitch");
+    let aScoreTd = document.querySelector("#aScore");
+    let bScoreTd = document.querySelector("#bScore");
     btnStart.addEventListener("click", startGame);
+    btnSwitch.addEventListener("click", switchTurn);
+    lstbuttons = document.querySelectorAll("#card");
+    lstbuttons.forEach(b => b.addEventListener("click", cardClick));
+    //console.log(lstbuttons);
+    //console.log(lstLetters);
+
+    function enableButtons()
+    {
+        lstbuttons.forEach(b => b.disabled = false);
+    }
+
+    function giveCardLetter() {
+        let lstb = lstbuttons.slice();
+        let lstl = lstLetters.slice();
+        for (let i = 0; i < 15; i++)
+        {
+            let c = Math.floor(Math.random() * (lstl.length() + 1));
+            let a = Math.floor(Math.random() * (lstb.length() +1));
+            console.log(a, c);
+            lstb[a].push(lstl[c].toString());
+            lstb.splice(a, 1);
+            let b = Math.floor(Math.random() * (lstb.length() + 1));
+            lstb[b].push(lstl[c].toUpperCase().toString());
+            lstb.splice(b, 1);
+            lstl.splice(c, 1);
+        }
+    }
+
+    function setCurrentTurn() {
+        currentTurn = currentTurn == "A" ? "B" : "A";
+    }
+
+    function detectWinner() {
+        let winner = "";
+        if (aScore > bScore) {
+            winner = "A";
+            aScoreTd.style.backgroundColor = "red";
+            //lo yodaat im ze yaavod
+        }
+        else if (bScore > aScore) {
+            bScoreTd.style.backgroundColor = "red";
+            winner = "B";
+        }
+        return winner;
+    }
+
+    function winnerMode() {
+        btnStart.disabled = false;
+        btnSwitch.disabled = true;
+        lstbuttons.forEach(b => b.style.color = "white");//fix
+    }
+
+    function messageText() {
+        let message = "Current turn: Player " + currentTurn;//.toString();
+        document.querySelector("#msg").innerHTML = pair == false ? message : "You got it! " + message;
+        if (lstbuttons.filter(b => b.disabled == false).length() == 0) {
+            document.querySelector("#msg").innerHTML = "Winner is " + detectWinner() + " Click Start Game";
+            winnerMode();
+        }
+    }
+
+    function doSwitchTurn() {
+        pair = false;
+        let lstcheckb = [];
+        lstbuttons.filter(b => b.style.backgroundColor == "White").forEach(b => lstcheckb.push(b));
+        if (lstcheckb[0].innerHtml.toLowerCase() == lstcheckb[1].innerHtml.toLowerCase()) {
+            pair = true;
+            switch (currentTurn) {
+                case "A":
+                    aScore = aScore + 1;
+                    break;
+                case "B":
+                    bScore = bScore + 1;
+                    break;
+            }
+            aScoreTd.innerHTML = aScore;
+            bScoreTd.innerHTML = bScore;
+            lstcheckb.forEach(b => b.disabled = true);
+        }
+        lstbuttons.forEach(b => b.style.backgroundColor = b.style.color);//lesader
+        btnSwitch.disabled = true;
+    }
+
+    function buttonsClicked() {
+        let i = lstbuttons.filter(btn => btn.style.backgroundColor == "White").length();
+        return i;
+    }
+
+    function setupGame() {
+        btnStart.disabled = true;
+        giveCardLetter();
+        let lstlbl = [aScoreTd, bScoreTd];
+        lstlbl.forEach(l => { l.innerHTML = "0"; l.style.backgroundColor = "white"; });//lesader tzeva
+    }
 
     function startGame(){
-        game.StartGame();
-        btnStart.disabled = true;
+        enableButtons();
+        messageText();
+        setupGame();
     }
+
+    function switchTurn() {
+        doSwitchTurn();
+        setCurrentTurn();
+        messageText();
+    }
+    
+    function cardClick(event) {
+        const btn = event.target;
+        if (buttonsClicked() < 2) {
+            btn.backcolor = "white";
+        }
+        if (buttonsClicked() == 2) {
+            btnSwitch.disabled = false;
+        }
 </script>
