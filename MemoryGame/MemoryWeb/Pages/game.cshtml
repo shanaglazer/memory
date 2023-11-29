@@ -9,7 +9,7 @@
         min-height: 100px;
         width: 100%;
         height: 100%;
-        background-color: #009cdc;
+        background-color: darkorchid;
         border: 1px solid white;
         text-align: center;
         vertical-align: middle;
@@ -20,58 +20,58 @@
 <div class="row">
     <table>
         <tr>
-            <td><button id="card" class="btn btn-info card"></button></td>
-            <td><button id="card" class="btn btn-info card"></button></td>
-            <td><button id="card" class="btn btn-info card"></button></td>
-            <td><button id="card" class="btn btn-info card"></button></td>
-            <td><button id="card" class="btn btn-info card"></button></td>
-            <td><button id="card" class="btn btn-info card"></button></td>
+            <td><button id="card" class="card"></button></td>
+            <td><button id="card" class="card"></button></td>
+            <td><button id="card" class="card"></button></td>
+            <td><button id="card" class="card"></button></td>
+            <td><button id="card" class="card"></button></td>
+            <td><button id="card" class="card"></button></td>
         </tr>       
         <tr>            
-            <td><button id="card" class="btn btn-info card"></button></td>
-            <td><button id="card" class="btn btn-info card"></button></td>
-            <td><button id="card" class="btn btn-info card"></button></td>
-            <td><button id="card" class="btn btn-info card"></button></td>
-            <td><button id="card" class="btn btn-info card"></button></td>
-            <td><button id="card" class="btn btn-info card"></button></td>
+            <td><button id="card" class="card"></button></td>
+            <td><button id="card" class="card"></button></td>
+            <td><button id="card" class="card"></button></td>
+            <td><button id="card" class="card"></button></td>
+            <td><button id="card" class="card"></button></td>
+            <td><button id="card" class="card"></button></td>
         </tr>       
         <tr>           
-            <td><button id="card" class="btn btn-info card"></button></td>
-            <td><button id="card" class="btn btn-info card"></button></td>
-            <td><button id="card" class="btn btn-info card"></button></td>
-            <td><button id="card" class="btn btn-info card"></button></td>
-            <td><button id="card" class="btn btn-info card"></button></td>
-            <td><button id="card" class="btn btn-info card"></button></td>
+            <td><button id="card" class="card"></button></td>
+            <td><button id="card" class="card"></button></td>
+            <td><button id="card" class="card"></button></td>
+            <td><button id="card" class="card"></button></td>
+            <td><button id="card" class="card"></button></td>
+            <td><button id="card" class="card"></button></td>
         </tr>        
         <tr>           
-            <td><button id="card" class="btn btn-info card"></button></td>
-            <td><button id="card" class="btn btn-info card"></button></td>
-            <td><button id="card" class="btn btn-info card"></button></td>
-            <td><button id="card" class="btn btn-info card"></button></td>
-            <td><button id="card" class="btn btn-info card"></button></td>
-            <td><button id="card" class="btn btn-info card"></button></td>
+            <td><button id="card" class="card"></button></td>
+            <td><button id="card" class="card"></button></td>
+            <td><button id="card" class="card"></button></td>
+            <td><button id="card" class="card"></button></td>
+            <td><button id="card" class="card"></button></td>
+            <td><button id="card" class="card"></button></td>
         </tr>        
         <tr>            
-            <td><button id="card" class="btn btn-info card"></button></td>
-            <td><button id="card" class="btn btn-info card"></button></td>
-            <td><button id="card" class="btn btn-info card"></button></td>
-            <td><button id="card" class="btn btn-info card"></button></td>
-            <td><button id="card" class="btn btn-info card"></button></td>
-            <td><button id="card" class="btn btn-info card"></button></td>
+            <td><button id="card" class="card"></button></td>
+            <td><button id="card" class="card"></button></td>
+            <td><button id="card" class="card"></button></td>
+            <td><button id="card" class="card"></button></td>
+            <td><button id="card" class="card"></button></td>
+            <td><button id="card" class="card"></button></td>
         </tr>
     </table>
 </div>
 <div class="row">
-    <div class="col-4"><p id="msg">Click Start Game</p></div>
+    <div class="col-4"><p id="msg" style="border:1px solid black;" align="center">Click Start Game</p></div>
     <div class="col-4">
-        <table class="">
+        <table class="" style="border:1px solid black;">
             <tr>
-                <td>Player A Score:</td>
+                <td style="padding:3px">Player A Score:</td>
                 <td>Player B Score:</td>
             </tr>
             <tr>
-                <td align="center" id="aScore">0</td>
-                <td id="bScore">0</td>
+                <td align="center" id="aScore" style="padding:3px">0</td>
+                <td id="bScore" align="center">0</td>
             </tr>
         </table>
     </div>
@@ -92,7 +92,7 @@
     let bScoreTd = document.querySelector("#bScore");
     btnStart.addEventListener("click", startGame);
     btnSwitch.addEventListener("click", switchTurn);
-    lstbuttons = document.querySelectorAll("#card");
+    lstbuttons = [...document.querySelectorAll("#card")];
     lstbuttons.forEach(b => b.addEventListener("click", cardClick));
     //console.log(lstbuttons);
     //console.log(lstLetters);
@@ -107,13 +107,18 @@
         let lstl = lstLetters.slice();
         for (let i = 0; i < 15; i++)
         {
-            let c = Math.floor(Math.random() * (lstl.length() + 1));
-            let a = Math.floor(Math.random() * (lstb.length() +1));
-            console.log(a, c);
-            lstb[a].push(lstl[c].toString());
+            let c = Math.floor(Math.random() * (lstl.length + 1));
+            let a = Math.floor(Math.random() * (lstb.length +1));
+            //console.log(a, c);
+            //lstb.splice(a, 1, lstl[c]);
+            lstb[a].innerHTML = lstl[c].toString();
+            console.log(lstb[a]);
+            //lstb[a].push(lstl[c]);
             lstb.splice(a, 1);
-            let b = Math.floor(Math.random() * (lstb.length() + 1));
-            lstb[b].push(lstl[c].toUpperCase().toString());
+            let b = Math.floor(Math.random() * (lstb.length + 1));
+            lstb[b].innerHTML = lstl[c].toString().toUpperCase();
+            //lstb.splice(b, 1, lstl[c].toString().toUpperCase());
+            //lstb[b].push(lstl[c].toUpperCase());
             lstb.splice(b, 1);
             lstl.splice(c, 1);
         }
@@ -146,7 +151,7 @@
     function messageText() {
         let message = "Current turn: Player " + currentTurn;//.toString();
         document.querySelector("#msg").innerHTML = pair == false ? message : "You got it! " + message;
-        if (lstbuttons.filter(b => b.disabled == false).length() == 0) {
+        if (lstbuttons.filter(b => b.disabled == false).length == 0) {
             document.querySelector("#msg").innerHTML = "Winner is " + detectWinner() + " Click Start Game";
             winnerMode();
         }
@@ -156,15 +161,17 @@
         pair = false;
         let lstcheckb = [];
         lstbuttons.filter(b => b.style.backgroundColor == "White").forEach(b => lstcheckb.push(b));
-        if (lstcheckb[0].innerHtml.toLowerCase() == lstcheckb[1].innerHtml.toLowerCase()) {
-            pair = true;
-            switch (currentTurn) {
-                case "A":
-                    aScore = aScore + 1;
-                    break;
-                case "B":
-                    bScore = bScore + 1;
-                    break;
+        if (lstcheckb.innerHTML != null) {
+            if (lstcheckb[0].innerHtml.toString().toLowerCase() == lstcheckb[1].innerHtml.toLowerCase()) {
+                pair = true;
+                switch (currentTurn) {
+                    case "A":
+                        aScore = aScore + 1;
+                        break;
+                    case "B":
+                        bScore = bScore + 1;
+                        break;
+                }
             }
             aScoreTd.innerHTML = aScore;
             bScoreTd.innerHTML = bScore;
@@ -175,7 +182,8 @@
     }
 
     function buttonsClicked() {
-        let i = lstbuttons.filter(btn => btn.style.backgroundColor == "White").length();
+        const array = lstbuttons.filter(btn => btn.style.backgroundColor == "White");
+        let i = array.length;
         return i;
     }
 
@@ -202,8 +210,12 @@
         const btn = event.target;
         if (buttonsClicked() < 2) {
             btn.backcolor = "white";
+            //console.log(btn.value);
         }
         if (buttonsClicked() == 2) {
             btnSwitch.disabled = false;
         }
+    }
+            //change all filters
+            //#6610f2 - sagol
 </script>
