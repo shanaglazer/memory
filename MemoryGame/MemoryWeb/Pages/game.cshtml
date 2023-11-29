@@ -107,15 +107,14 @@
         let lstl = lstLetters.slice();
         for (let i = 0; i < 15; i++)
         {
-            let c = Math.floor(Math.random() * (lstl.length + 1));
-            let a = Math.floor(Math.random() * (lstb.length +1));
+            let c = Math.floor(Math.random() * (lstl.length));
+            let a = Math.floor(Math.random() * (lstb.length));
             //console.log(a, c);
             //lstb.splice(a, 1, lstl[c]);
             lstb[a].innerHTML = lstl[c].toString();
-            console.log(lstb[a]);
             //lstb[a].push(lstl[c]);
             lstb.splice(a, 1);
-            let b = Math.floor(Math.random() * (lstb.length + 1));
+            let b = Math.floor(Math.random() * (lstb.length));
             lstb[b].innerHTML = lstl[c].toString().toUpperCase();
             //lstb.splice(b, 1, lstl[c].toString().toUpperCase());
             //lstb[b].push(lstl[c].toUpperCase());
@@ -209,7 +208,7 @@
     function cardClick(event) {
         const btn = event.target;
         if (buttonsClicked() < 2) {
-            btn.backcolor = "white";
+            btn.style.backcolor = "white";
             //console.log(btn.value);
         }
         if (buttonsClicked() == 2) {
