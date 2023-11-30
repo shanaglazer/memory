@@ -9,8 +9,10 @@
         min-height: 100px;
         width: 100%;
         height: 100%;
+        padding: 10px;
+        color: darkorchid;
         background-color: darkorchid;
-        border: 1px solid white;
+        border: 1px solid black;
         text-align: center;
         vertical-align: middle;
         font-size: xx-large
@@ -158,9 +160,10 @@
 
     function doSwitchTurn() {
         pair = false;
-        let lstcheckb = [];
-        lstbuttons.filter(b => b.style.backgroundColor == "White").forEach(b => lstcheckb.push(b));
-        if (lstcheckb.innerHTML != null) {
+        //let lstcheckb = lstbuttons.filter(b => b.style.backgroundColor == "White");//.forEach(b => lstcheckb.push(b));
+        //let lstcheckb = lstbuttons.filter(b => getComputedStyle(b).backgroundColor == 'rgb(255,255,255)');//.forEach(b => lstcheckb.push(b));
+        let lstcheckb = lstbuttons.filter(b => b.style.backgroundColor == 'rgb(255,255,255)');
+        // if (lstcheckb.innerHTML != null) {
             if (lstcheckb[0].innerHtml.toString().toLowerCase() == lstcheckb[1].innerHtml.toLowerCase()) {
                 pair = true;
                 switch (currentTurn) {
@@ -171,17 +174,17 @@
                         bScore = bScore + 1;
                         break;
                 }
-            }
+          //  }
             aScoreTd.innerHTML = aScore;
             bScoreTd.innerHTML = bScore;
             lstcheckb.forEach(b => b.disabled = true);
         }
-        lstbuttons.forEach(b => b.style.backgroundColor = b.style.color);//lesader
+        lstbuttons.forEach(b => b.style.backgroundColor = 'rgb(153, 50, 204)');//lesader
         btnSwitch.disabled = true;
     }
 
     function buttonsClicked() {
-        const array = lstbuttons.filter(btn => btn.style.backgroundColor == "White");
+        const array = lstbuttons.filter(btn => btn.style.backgroundColor == 'rgb(255, 255, 255)');
         let i = array.length;
         return i;
     }
@@ -208,12 +211,13 @@
     function cardClick(event) {
         const btn = event.target;
         if (buttonsClicked() < 2) {
-            btn.style.backcolor = "white";
+            btn.style.backgroundColor = 'rgb(255, 255, 255)';
             //console.log(btn.value);
         }
         if (buttonsClicked() == 2) {
             btnSwitch.disabled = false;
         }
+        console.log(typeof (btnSwitch));
     }
             //change all filters
             //#6610f2 - sagol
