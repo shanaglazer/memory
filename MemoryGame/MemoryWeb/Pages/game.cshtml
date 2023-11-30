@@ -162,9 +162,10 @@
         pair = false;
         //let lstcheckb = lstbuttons.filter(b => b.style.backgroundColor == "White");//.forEach(b => lstcheckb.push(b));
         //let lstcheckb = lstbuttons.filter(b => getComputedStyle(b).backgroundColor == 'rgb(255,255,255)');//.forEach(b => lstcheckb.push(b));
-        let lstcheckb = lstbuttons.filter(b => b.style.backgroundColor == 'rgb(255,255,255)');
+        let lstcheckb = lstbuttons.filter(b => b.style.backgroundColor == 'rgb(255, 255, 255)');
         // if (lstcheckb.innerHTML != null) {
-            if (lstcheckb[0].innerHtml.toString().toLowerCase() == lstcheckb[1].innerHtml.toLowerCase()) {
+        let a = lstcheckb[0].innerHTML.toLowerCase();
+        if (lstcheckb[0].innerHTML.toLowerCase() == lstcheckb[1].innerHtml.toLowerCase()) {
                 pair = true;
                 switch (currentTurn) {
                     case "A":
