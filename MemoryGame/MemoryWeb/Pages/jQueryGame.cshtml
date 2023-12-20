@@ -1,0 +1,231 @@
+﻿@page
+@model MemoryWeb.Pages.jQueryGameModel
+@{
+}
+
+<style>
+    .card {
+        min-width: 80px;
+        min-height: 80px;
+        width: 100%;
+        height: 100%;
+        padding: 10px;
+        color: darkorchid;
+        background-color: darkorchid;
+        border: 1px solid black;
+        text-align: center;
+        vertical-align: middle;
+        font-size: xx-large;
+        display: block;
+        flex-direction: initial;
+    }
+</style>
+
+<style>
+    .size {
+        max-width: 180px;
+        width: 100%;
+        height: 95px
+    }
+</style>
+
+<div class="row table-responsive-*">
+    <table>
+        <tr>
+            <td><button id="card" class="card"></button></td>
+            <td><button id="card" class="card"></button></td>
+            <td><button id="card" class="card"></button></td>
+            <td><button id="card" class="card"></button></td>
+            <td><button id="card" class="card"></button></td>
+            <td><button id="card" class="card"></button></td>
+        </tr>
+        <tr>
+            <td><button id="card" class="card"></button></td>
+            <td><button id="card" class="card"></button></td>
+            <td><button id="card" class="card"></button></td>
+            <td><button id="card" class="card"></button></td>
+            <td><button id="card" class="card"></button></td>
+            <td><button id="card" class="card"></button></td>
+        </tr>
+        <tr>
+            <td><button id="card" class="card"></button></td>
+            <td><button id="card" class="card"></button></td>
+            <td><button id="card" class="card"></button></td>
+            <td><button id="card" class="card"></button></td>
+            <td><button id="card" class="card"></button></td>
+            <td><button id="card" class="card"></button></td>
+        </tr>
+        <tr>
+            <td><button id="card" class="card"></button></td>
+            <td><button id="card" class="card"></button></td>
+            <td><button id="card" class="card"></button></td>
+            <td><button id="card" class="card"></button></td>
+            <td><button id="card" class="card"></button></td>
+            <td><button id="card" class="card"></button></td>
+        </tr>
+        <tr>
+            <td><button id="card" class="card"></button></td>
+            <td><button id="card" class="card"></button></td>
+            <td><button id="card" class="card"></button></td>
+            <td><button id="card" class="card"></button></td>
+            <td><button id="card" class="card"></button></td>
+            <td><button id="card" class="card"></button></td>
+        </tr>
+    </table>
+</div>
+<div class="row">
+    <div class="col-4" style="width:25%"><p class="size" id="msg" style="border:1px  solid black;" align="center">Click Start Game</p></div>
+    <div class="col-4" style="width:25%">
+        <table class="size" style="border:1px solid black;">
+            <tr>
+                <td style="padding:3px">Player A Score:</td>
+                <td>Player B Score:</td>
+            </tr>
+            <tr>
+                <td align="center" id="aScore" style="padding:3px">0</td>
+                <td id="bScore" align="center">0</td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-2" style="width:25%"><button class="size" id="btnStart">Start Game</button></div>
+    <div class="col-2" style="width:25%"><button class="size" id="btnSwitch">Switch Turn</button></div>
+</div>
+<div class="row"><h1 style="text-align: center">jQuery Memory Game</h1></div>
+
+
+
+@section Scripts{
+    <script>
+        let currentTurn = "A";
+        let aScore = 0;
+        let bScore = 0;
+        let pair = false;
+        let lstLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+        let lstbuttons = [];
+        let btnStart = $("#btnStart");
+        let btnSwitch = $("#btnSwitch");
+        let aScoreTd = $("#aScore");
+        let bScoreTd = $("#bScore");
+        btnStart.click(startGame);
+        btnSwitch.click(switchTurn);
+        lstbuttons = $("#card");
+        lstbuttons.prop("disabled", true);//.forEach(btn => btn.disabled = true);
+        lstbuttons.click(cardClick);
+
+
+        function enableButtons() {
+            lstbuttons.prop("disabled", false);//.forEach(b => b.disabled = false);
+        }
+
+        function giveCardLetter() {
+            let lstb = $.makeArray(lstbuttons);//.slice();
+            let lstl = lstLetters.slice();
+            for (let i = 0; i < 15; i++) {
+                let c = Math.floor(Math.random() * (lstl.length));
+                let a = Math.floor(Math.random() * (lstb.length));
+                lstb[a].innerHTML = lstl[c].toString();
+                lstb.splice(a, 1);
+                let b = Math.floor(Math.random() * (lstb.length));
+                lstb[b].innerHTML = lstl[c].toString().toUpperCase();
+                lstb.splice(b, 1);
+                lstl.splice(c, 1);
+            }
+        }
+
+        function setCurrentTurn() {
+            currentTurn = currentTurn == "A" ? "B" : "A";
+        }
+
+        function detectWinner() {
+            let winner = "";
+            if (aScore > bScore) {
+                winner = "A";
+                aScoreTd.style.backgroundColor = "red";
+                //lo yodaat im ze yaavod
+            }
+            else if (bScore > aScore) {
+                bScoreTd.style.backgroundColor = "red";
+                winner = "B";
+            }
+            return winner;
+        }
+
+        function winnerMode() {
+            btnStart.disabled = false;
+            btnSwitch.disabled = true;
+            lstbuttons.forEach(b => b.style.backgroundColor = 'rgb(153, 50, 204)');
+        }
+
+        function messageText() {
+            let message = "Current turn: Player " + currentTurn;//.toString();
+            $("#msg").innerHTML = pair == false ? message : "You got it! " + message;
+            if (lstbuttons.filter(b => b.disabled == false).length == 0) {
+                $("#msg").innerHTML = "Winner is " + detectWinner() + " Click Start Game";
+                winnerMode();
+            }
+        }
+
+        function doSwitchTurn() {
+            pair = false;
+            let lstcheckb = lstbuttons.filter(b => b.style.backgroundColor == 'rgb(255, 255, 255)');
+            let a = ""; a = lstcheckb[0].innerHTML.toLowerCase();
+            let b = ""; b = lstcheckb[1].innerHTML.toLowerCase();
+            if (a == b) {
+                pair = true;
+                switch (currentTurn) {
+                    case "A":
+                        aScore = aScore + 1;
+                        break;
+                    case "B":
+                        bScore = bScore + 1;
+                        break;
+                }
+                aScoreTd.innerHTML = aScore;
+                bScoreTd.innerHTML = bScore;
+                lstcheckb.forEach(b => b.disabled = true);
+                lstcheckb.forEach(b => b.style.color = "black");
+            }
+            lstbuttons.forEach(b => b.style.backgroundColor = 'rgb(153, 50, 204)');//lesader
+            btnSwitch.disabled = true;
+        }
+
+        function buttonsClicked() {
+            const array = lstbuttons.filter(btn => btn.style.backgroundColor == 'rgb(255, 255, 255)');
+            let i = array.length;
+            return i;
+        }
+
+        function setupGame() {
+            pair = false;
+            currentTurn = "A";
+            btnStart.disabled = true;
+            lstbuttons.prop("style.color", 'rgb(153, 50, 204)');//.forEach(b => b.style.color = 'rgb(153, 50, 204)');
+            giveCardLetter();
+            let lstlbl = [aScoreTd, bScoreTd];
+            lstlbl.forEach(l => { l.innerHTML = "0"; l.style.backgroundColor = "white"; });
+        }
+
+        function startGame() {
+            enableButtons();
+            setupGame();
+            messageText();
+        }
+
+        function switchTurn() {
+            doSwitchTurn();
+            setCurrentTurn();
+            messageText();
+        }
+
+        function cardClick(event) {
+            const btn = event.target;
+            if (buttonsClicked() < 2) {
+                btn.style.backgroundColor = 'rgb(255, 255, 255)';
+            }
+            if (buttonsClicked() == 2) {
+                btnSwitch.disabled = false;
+            }
+            console.log(typeof (btnSwitch));
+        }
+    </script>
+        }
