@@ -121,15 +121,10 @@
         {
             let c = Math.floor(Math.random() * (lstl.length));
             let a = Math.floor(Math.random() * (lstb.length));
-            //console.log(a, c);
-            //lstb.splice(a, 1, lstl[c]);
             lstb[a].innerHTML = lstl[c].toString();
-            //lstb[a].push(lstl[c]);
             lstb.splice(a, 1);
             let b = Math.floor(Math.random() * (lstb.length));
             lstb[b].innerHTML = lstl[c].toString().toUpperCase();
-            //lstb.splice(b, 1, lstl[c].toString().toUpperCase());
-            //lstb[b].push(lstl[c].toUpperCase());
             lstb.splice(b, 1);
             lstl.splice(c, 1);
         }
@@ -144,7 +139,6 @@
         if (aScore > bScore) {
             winner = "A";
             aScoreTd.style.backgroundColor = "red";
-            //lo yodaat im ze yaavod
         }
         else if (bScore > aScore) {
             bScoreTd.style.backgroundColor = "red";
@@ -160,20 +154,17 @@
     }
 
     function messageText() {
-        let message = "Current turn: Player " + currentTurn;//.toString();
+        let message = "Current turn: Player " + currentTurn;
         document.querySelector("#msg").innerHTML = pair == false ? message : "You got it! " + message;
         if (lstbuttons.filter(b => b.disabled == false).length == 0) {
-            document.querySelector("#msg").innerHTML = "Winner is " + detectWinner() + " Click Start Game";
+            document.querySelector("#msg").innerHTML = "Winner is " + detectWinner() + ". Click Start Game";
             winnerMode();
         }
     }
 
     function doSwitchTurn() {
         pair = false;
-        //let lstcheckb = lstbuttons.filter(b => b.style.backgroundColor == "White");//.forEach(b => lstcheckb.push(b));
-        //let lstcheckb = lstbuttons.filter(b => getComputedStyle(b).backgroundColor == 'rgb(255,255,255)');//.forEach(b => lstcheckb.push(b));
         let lstcheckb = lstbuttons.filter(b => b.style.backgroundColor == 'rgb(255, 255, 255)');
-        // if (lstcheckb.innerHTML != null) {
         let a = ""; a = lstcheckb[0].innerHTML.toLowerCase();
         let b = ""; b = lstcheckb[1].innerHTML.toLowerCase();
         if (a == b) {
@@ -186,7 +177,6 @@
                     bScore = bScore + 1;
                     break;
             }
-            //  }
             aScoreTd.innerHTML = aScore;
             bScoreTd.innerHTML = bScore;
             lstcheckb.forEach(b => b.disabled = true);
@@ -204,8 +194,10 @@
 
     function setupGame() {
         pair = false;
+        aScore = 0;
+        bScore = 0;
         currentTurn = "A";
-        btnStart.disabled = true;
+        btnStart.disabled = false;
         lstbuttons.forEach(b => b.style.color = 'rgb(153, 50, 204)');
         giveCardLetter();
         let lstlbl = [aScoreTd, bScoreTd];
@@ -228,13 +220,10 @@
         const btn = event.target;
         if (buttonsClicked() < 2) {
             btn.style.backgroundColor = 'rgb(255, 255, 255)';
-            //console.log(btn.value);
         }
         if (buttonsClicked() == 2) {
             btnSwitch.disabled = false;
         }
         console.log(typeof (btnSwitch));
     }
-            //change all filters
-            //#6610f2 - sagol
 </script>
