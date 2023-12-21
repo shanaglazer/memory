@@ -97,28 +97,41 @@
 @section Scripts{
     <script>
         let currentTurn = "A";
-        let aScore = 0;
-        let bScore = 0;
+        let aScoreVal = 0;
+        let bScoreVal = 0;
         let pair = false;
         let lstLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
         let lstbuttons = [];
-        let btnStart = $("#btnStart");
-        let btnSwitch = $("#btnSwitch");
-        let aScoreTd = $("#aScore");
-        let bScoreTd = $("#bScore");
-        btnStart.click(startGame);
-        btnSwitch.click(switchTurn);
-        lstbuttons = $("#card");
-        lstbuttons.prop("disabled", true);//.forEach(btn => btn.disabled = true);
-        lstbuttons.click(cardClick);
+        let btnStart;
+        let btnSwitch;
+        let aScore;
+        let bScore;
+        //btnStart.addEventListener("click", startGame);
+        //btnSwitch.addEventListener("click", switchTurn);
+        //lstbuttons = [...document.querySelectorAll("#card")];
+        //lstbuttons.forEach(btn => btn.disabled = true);
+        //lstbuttons.forEach(b => b.addEventListener("click", cardClick));
 
+        $(document).ready(function () {
+            let btnStart = $("#btnStart");
+            let btnSwitch = $("#btnSwitch");
+            aScore = document.querySelector("#aScore");
+            bScore = document.querySelector("#bScore");
+            btnStart.click(startGame);
+            btnSwitch.click(switchTurn);
+            lstbuttons = [...document.querySelectorAll("#card")];
+            $(lstbuttons).prop("disabled", true);
+            //lstbuttons.forEach(btn => btn.disabled = true);
+            $(lstbuttons).click(cardClick);
+            setupGame();//check if needed here
+        });
 
         function enableButtons() {
-            lstbuttons.prop("disabled", false);//.forEach(b => b.disabled = false);
+            lstbuttons.forEach(b => b.disabled = false);
         }
 
         function giveCardLetter() {
-            let lstb = $.makeArray(lstbuttons);//.slice();
+            let lstb = lstbuttons.slice();
             let lstl = lstLetters.slice();
             for (let i = 0; i < 15; i++) {
                 let c = Math.floor(Math.random() * (lstl.length));
@@ -138,30 +151,32 @@
 
         function detectWinner() {
             let winner = "";
-            if (aScore > bScore) {
+            if (aScoreVal > bScoreVal) {
                 winner = "A";
-                aScoreTd.style.backgroundColor = "red";
-                //lo yodaat im ze yaavod
+                aScore.style.backgroundColor = "red";
             }
-            else if (bScore > aScore) {
-                bScoreTd.style.backgroundColor = "red";
+            else if (bScoreVal > aScoreVal) {
+                bScore.style.backgroundColor = "red";
                 winner = "B";
             }
             return winner;
         }
 
         function winnerMode() {
-            btnStart.disabled = false;
-            btnSwitch.disabled = true;
+            //btnStart.disabled = false;
+            btnSwitch.prop("disabled", true);
+            //btnSwitch.disabled = true;
             lstbuttons.forEach(b => b.style.backgroundColor = 'rgb(153, 50, 204)');
         }
 
         function messageText() {
-            let message = "Current turn: Player " + currentTurn;//.toString();
-            $("#msg").innerHTML = pair == false ? message : "You got it! " + message;
+            let message = "Current turn: Player " + currentTurn;
+            let finalmsg = pair == false ? message : "You got it! " + message;
+            $("#msg").text(finalmsg);
             if (lstbuttons.filter(b => b.disabled == false).length == 0) {
-                $("#msg").innerHTML = "Winner is " + detectWinner() + " Click Start Game";
-                winnerMode();
+                finalmsg = "Winner is " + detectWinner() + ". Click Start Game";
+                $("#msg").text(finalmsg); 
+                winnerMode();i
             }
         }
 
@@ -174,19 +189,20 @@
                 pair = true;
                 switch (currentTurn) {
                     case "A":
-                        aScore = aScore + 1;
+                        aScoreVal = aScoreVal + 1;
                         break;
                     case "B":
-                        bScore = bScore + 1;
+                        bScoreVal = bScoreVal + 1;
                         break;
                 }
-                aScoreTd.innerHTML = aScore;
-                bScoreTd.innerHTML = bScore;
+                aScore.text() = aScoreVal;
+                bScore.text() = bScoreVal;
                 lstcheckb.forEach(b => b.disabled = true);
                 lstcheckb.forEach(b => b.style.color = "black");
             }
             lstbuttons.forEach(b => b.style.backgroundColor = 'rgb(153, 50, 204)');//lesader
-            btnSwitch.disabled = true;
+            btnSwitch.prop("disabled", true);
+            //btnSwitch.disabled = true;
         }
 
         function buttonsClicked() {
@@ -197,11 +213,13 @@
 
         function setupGame() {
             pair = false;
+            aScoreVal = 0;
+            bScoreVal = 0;
             currentTurn = "A";
-            btnStart.disabled = true;
-            lstbuttons.prop("style.color", 'rgb(153, 50, 204)');//.forEach(b => b.style.color = 'rgb(153, 50, 204)');
+            //btnStart.disabled = false;
+            lstbuttons.forEach(b => b.style.color = 'rgb(153, 50, 204)');
             giveCardLetter();
-            let lstlbl = [aScoreTd, bScoreTd];
+            let lstlbl = [aScore, bScore];
             lstlbl.forEach(l => { l.innerHTML = "0"; l.style.backgroundColor = "white"; });
         }
 
@@ -223,7 +241,8 @@
                 btn.style.backgroundColor = 'rgb(255, 255, 255)';
             }
             if (buttonsClicked() == 2) {
-                btnSwitch.disabled = false;
+                btnSwitch.prop("disabled", true);
+                //btnSwitch.disabled = false;
             }
             console.log(typeof (btnSwitch));
         }
