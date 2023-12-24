@@ -177,13 +177,17 @@
                     bScore = bScore + 1;
                     break;
             }
-            aScoreTd.innerHTML = aScore;
-            bScoreTd.innerHTML = bScore;
+            setScore();
             lstcheckb.forEach(b => b.disabled = true);
             lstcheckb.forEach(b => b.style.color = "black");
         }
-        lstbuttons.forEach(b => b.style.backgroundColor = 'rgb(153, 50, 204)');//lesader
+        lstbuttons.forEach(b => b.style.backgroundColor = 'rgb(153, 50, 204)');
         btnSwitch.disabled = true;
+    }
+
+    function setScore() {
+        aScoreTd.innerHTML = aScore;
+        bScoreTd.innerHTML = bScore;
     }
 
     function buttonsClicked() {
@@ -196,9 +200,10 @@
         pair = false;
         aScore = 0;
         bScore = 0;
+        setScore();
         currentTurn = "A";
         btnStart.disabled = false;
-        lstbuttons.forEach(b => b.style.color = 'rgb(153, 50, 204)');
+        lstbuttons.forEach(b => { b.style.color = 'rgb(153, 50, 204)'; b.style.backgroundColor = 'rgb(153, 50, 204)'; });
         giveCardLetter();
         let lstlbl = [aScoreTd, bScoreTd];
         lstlbl.forEach(l => { l.innerHTML = "0"; l.style.backgroundColor = "white"; });
