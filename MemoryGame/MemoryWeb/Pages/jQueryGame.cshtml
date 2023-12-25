@@ -125,20 +125,20 @@
             $(lstbuttons).prop('disabled', false);
         }
 
-        function giveCardLetter() {//lo oved!
-            let lstb = $(lstbuttons.slice());
-            let lstl = $(lstLetters.slice());
-            //let lstb = lstbuttons.slice();
-            //let lstl = lstLetters.slice();
+        function giveCardLetter() {
+            //let lstb = $(lstbuttons.slice());
+            //let lstl = $(lstLetters.slice());
+            let lstb = lstbuttons.slice();
+            let lstl = lstLetters.slice();
             for (let i = 0; i < 15; i++) {
                 let c = Math.floor(Math.random() * (lstl.length));
                 let a = Math.floor(Math.random() * (lstb.length));
-                //lstb[a].innerHTML = lstl[c].toString();
-                lstb[a].text(lstl[c].text());
+                lstb[a].innerHTML = lstl[c].toString();
+                //(lstb.eq(a)).text(lstl.eq(c).text());
                 lstb.splice(a, 1);
                 let b = Math.floor(Math.random() * (lstb.length));
-                //lstb[b].innerHTML = lstl[c].toString().toUpperCase();
-                lstb[b].text(lstl[c].text().toUpperCase());
+                lstb[b].innerHTML = lstl[c].toString().toUpperCase();
+                //(lstb.eq(b)).text(lstl.eq(c).text().toUpperCase());
                 lstb.splice(b, 1);
                 lstl.splice(c, 1);
             }
