@@ -126,19 +126,15 @@
         }
 
         function giveCardLetter() {
-            //let lstb = $(lstbuttons.slice());
-            //let lstl = $(lstLetters.slice());
             let lstb = lstbuttons.slice();
             let lstl = lstLetters.slice();
             for (let i = 0; i < 15; i++) {
                 let c = Math.floor(Math.random() * (lstl.length));
                 let a = Math.floor(Math.random() * (lstb.length));
                 lstb[a].innerHTML = lstl[c].toString();
-                //(lstb.eq(a)).text(lstl.eq(c).text());
                 lstb.splice(a, 1);
                 let b = Math.floor(Math.random() * (lstb.length));
                 lstb[b].innerHTML = lstl[c].toString().toUpperCase();
-                //(lstb.eq(b)).text(lstl.eq(c).text().toUpperCase());
                 lstb.splice(b, 1);
                 lstl.splice(c, 1);
             }
@@ -178,7 +174,7 @@
         }
 
         function doSwitchTurn() {
-            pair = false;//
+            pair = false;
             let lstcheckb = lstbuttons.filter(b => b.style.backgroundColor == 'rgb(255, 255, 255)');
             let a = ""; a = lstcheckb[0].innerHTML.toLowerCase();
             let b = ""; b = lstcheckb[1].innerHTML.toLowerCase();
@@ -205,7 +201,7 @@
             bScore.text(bScoreVal);
         }
 
-        function buttonsClicked() {//
+        function buttonsClicked() {
             const array = lstbuttons.filter(btn => btn.style.backgroundColor == 'rgb(255, 255, 255)');
             let i = array.length;
             return i;
@@ -217,7 +213,7 @@
             bScoreVal = 0;
             setScore();
             currentTurn = "A";
-            $(lstbuttons).css({ 'background - color': 'rgb(153, 50, 204)', 'color': 'rgb(153, 50, 204)' });
+            $(lstbuttons).css({ 'background-color': 'rgb(153, 50, 204)', 'color': 'rgb(153, 50, 204)' });
             giveCardLetter();
             let lstlbl = $('[id*="Score"]');
             lstlbl.text("0");
