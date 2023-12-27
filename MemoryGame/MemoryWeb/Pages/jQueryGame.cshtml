@@ -3,6 +3,7 @@
 @{
 }
 
+@*AF All styles can be within one set of style tags, no need to enclose each style in its own set of style tags *@
 <style>
     .card {
         min-width: 80px;
@@ -131,6 +132,7 @@
             for (let i = 0; i < 15; i++) {
                 let c = Math.floor(Math.random() * (lstl.length));
                 let a = Math.floor(Math.random() * (lstb.length));
+                //AF Instead of innerHTML, for this HW, you should use jquery to accomplish the same thing, and same thing when you use innerHTML a few lines down
                 lstb[a].innerHTML = lstl[c].toString();
                 lstb.splice(a, 1);
                 let b = Math.floor(Math.random() * (lstb.length));
@@ -157,12 +159,17 @@
             return winner;
         }
 
+        /*AF You are using 2 rgb colors a lot and it can be prone to errors, likely it might be written wrong in one of the many places.  It would be more secure
+        to put the rgb colors into variables and reference them like that*/
         function winnerMode() {
             btnSwitch.prop('disabled', true);
             $(lstbuttons).css('background-color', 'rgb(153, 50, 204)');
         }
 
         function messageText() {
+            /*AF Instead of setting the message text to a certain message, and then changing that text if the game is over, the proper way to do this if for both
+            options of messages to be part of the if statement.  Meaning you can keep your if statement checking if the game is over, and have an else statement to set the 
+            message text to the other option if the game is not yet over*/
             let message = "Current turn: Player " + currentTurn;
             let finalmsg = pair == false ? message : "You got it! " + message;
             $("#msg").text(finalmsg);
