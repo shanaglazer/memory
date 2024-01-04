@@ -131,10 +131,10 @@
                 let c = Math.floor(Math.random() * (lstl.length));
                 let a = Math.floor(Math.random() * (lstb.length));
                 //AF Instead of innerHTML, for this HW, you should use jquery to accomplish the same thing, and same thing when you use innerHTML a few lines down
-                $(lstb[a]).html(lstl[c].toString());
+                lstb[a].innerHTML = lstl[c].toString();
                 lstb.splice(a, 1);
                 let b = Math.floor(Math.random() * (lstb.length));
-                $(lstb[b]).html(lstl[c].toString().toUpperCase());
+                lstb[b].innerHTML = lstl[c].toString().toUpperCase();
                 lstb.splice(b, 1);
                 lstl.splice(c, 1);
             }
