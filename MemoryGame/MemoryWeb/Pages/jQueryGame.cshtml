@@ -130,7 +130,6 @@
             for (let i = 0; i < 15; i++) {
                 let c = Math.floor(Math.random() * (lstl.length));
                 let a = Math.floor(Math.random() * (lstb.length));
-                //AF Instead of innerHTML, for this HW, you should use jquery to accomplish the same thing, and same thing when you use innerHTML a few lines down
                 lstb[a].innerHTML = lstl[c].toString();
                 lstb.splice(a, 1);
                 let b = Math.floor(Math.random() * (lstb.length));
