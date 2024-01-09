@@ -1,28 +1,28 @@
 ﻿enum Turn{ "A" = "A", 'B' = 'B' }
 let currentTurn = Turn.A;
-let aScoreVal: Number = 0;
-let bScoreVal: Number = 0;
+let aScoreVal: number = 0;
+let bScoreVal: number = 0;
 let pair = false;
 let lstLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-let lstbuttons: Element[] = [];
+let lstbuttons: HTMLButtonElement[] = [];
 let btnStart;
 let btnSwitch: HTMLButtonElement;
 let aScore: HTMLElement;
-let bScore: HTMLElement;
+let bScore: HTMLInputElement;
 let purplecolor = 'rgb(153, 50, 204)';
 let whitecolor = 'rgb(255, 255, 255)';
 
 
 $(document).ready(function () {
-    btnStart = $("#btnStart");
-    btnSwitch = $("#btnSwitch").prop("disabled");
-    aScore = $("#aScore");
-    bScore = $("#bScore");
-    btnStart.click(startGame);
-    btnSwitch.click(switchTurn);
+    btnStart = document.querySelector("#btnStart");
+    btnSwitch = document.querySelector("#btnSwitch");
+    aScore = document.querySelector("#aScore");
+    bScore = document.querySelector("#bScore");
+    btnStart.addEventListener('click', startGame);
+    btnSwitch.addEventListener('click', switchTurn);
     lstbuttons = [...document.querySelectorAll("#card")];
-    $(lstbuttons).prop('disabled', true);
-    $(lstbuttons).click(cardClick);
+    lstbuttons.forEach(btn => { btn.disabled = true; addEventListener('click', cardClick) });
+    //lstbuttons.forEach(btn => addEventListener('click', cardClick));
     setupGame();
 });
 
@@ -53,17 +53,17 @@ function detectWinner() {
     let winner = "";
     if (aScoreVal > bScoreVal) {
         winner = "A";
-        aScore.('background-color', 'red');
+        aScore.style.backgroundColor = "red";
     }
     else if (bScoreVal > aScoreVal) {
-        bScore.css('background-color', 'red');
+        bScore.style.backgroundColor = "red";
         winner = "B";
     }
     return winner;
 }
 
 function winnerMode() {
-    btnSwitch.prop('disabled', true);
+    btnSwitch.disabled = true;
     $(lstbuttons).css('background-color', purplecolor);
 }
 
@@ -92,7 +92,7 @@ function doSwitchTurn() {
         pair = true;
         switch (currentTurn) {
             case "A":
-                aScoreVal = aScoreVal + 1;
+                aScoreVal = aScoreVal++;
                 break;
             case "B":
                 bScoreVal = bScoreVal + 1;
@@ -103,12 +103,12 @@ function doSwitchTurn() {
         $(lstcheckb).css('color', 'rgb(0, 0, 0)');
     }
     $(lstbuttons).css('background-color', purplecolor);
-    btnSwitch.prop('disabled', true);
+    btnSwitch.disabled = true;
 }
 
 function setScore() {
-    aScore.text(aScoreVal);
-    bScore.text(bScoreVal);
+    aScore.innerHTML = aScoreVal.toString();
+    bScore.innerHTML = bScoreVal.toString();
 }
 
 function buttonsClicked() {
@@ -143,7 +143,7 @@ function switchTurn() {
 }
 
 function cardClick(e: Event) {
-    const btn = e.target;
+    const btn = e.target as HTMLButtonElement;
     if (buttonsClicked() < 2) {
         btn.style.backgroundColor = whitecolor;
     }
