@@ -1,4 +1,4 @@
-﻿enum Turn{ "A" = "A", 'B' = 'B' }
+﻿enum Turn { "A" = "A", 'B' = 'B' }
 let currentTurn = Turn.A;
 let aScoreVal: number = 0;
 let bScoreVal: number = 0;
@@ -20,7 +20,10 @@ $(document).ready(function () {
     bScore = document.querySelector("#bScore");
     btnStart.addEventListener('click', startGame);
     btnSwitch.addEventListener('click', switchTurn);
-    lstbuttons = [...document.querySelectorAll("#card")];
+    //$("#table").find("#card").each(function () {
+    //    lstbuttons.push(this as HTMLButtonElement);
+    //})
+    lstbuttons = [...[(document.querySelectorAll(".card") as unknown as HTMLButtonElement)]];
     lstbuttons.forEach(btn => { btn.disabled = true; addEventListener('click', cardClick) });
     //lstbuttons.forEach(btn => addEventListener('click', cardClick));
     setupGame();
@@ -70,7 +73,7 @@ function winnerMode() {
 function messageText() {
     let message = "Current turn: Player " + currentTurn;
     let finalmsg = "";
-    if (lstbuttons.filter(b => b. disabled == false).length == 0) {
+    if (lstbuttons.filter(b => b.disabled == false).length == 0) {
         finalmsg = "Winner is " + detectWinner() + ". Click Start Game";
         winnerMode();
     }
