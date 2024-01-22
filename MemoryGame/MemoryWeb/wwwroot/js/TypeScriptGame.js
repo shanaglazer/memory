@@ -16,6 +16,10 @@ let bScore;
 let purplecolor = 'rgb(153, 50, 204)';
 let whitecolor = 'rgb(255, 255, 255)';
 $(document).ready(function () {
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(c => lstbuttons.push(c));
+    //cards.forEach(btn => btn as unknown as HTMLButtonElement);
+    //let ll = cards.length;
     btnStart = document.querySelector("#btnStart");
     btnSwitch = document.querySelector("#btnSwitch");
     aScore = document.querySelector("#aScore");
@@ -25,7 +29,7 @@ $(document).ready(function () {
     //$("#table").find("#card").each(function () {
     //    lstbuttons.push(this as HTMLButtonElement);
     //})
-    lstbuttons = [...[document.querySelectorAll(".card")]];
+    //lstbuttons.push(document.querySelectorAll('.card') as unknown as HTMLButtonElement);
     lstbuttons.forEach(btn => { btn.disabled = true; addEventListener('click', cardClick); });
     //lstbuttons.forEach(btn => addEventListener('click', cardClick));
     setupGame();
