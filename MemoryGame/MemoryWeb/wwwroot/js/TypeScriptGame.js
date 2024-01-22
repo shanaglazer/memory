@@ -96,7 +96,7 @@ function doSwitchTurn() {
         pair = true;
         switch (currentTurn) {
             case "A":
-                aScoreVal = aScoreVal++;
+                aScoreVal = aScoreVal + 1;
                 break;
             case "B":
                 bScoreVal = bScoreVal + 1;
