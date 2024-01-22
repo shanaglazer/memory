@@ -34,7 +34,7 @@ function enableButtons() {
 }
 
 function giveCardLetter() {
-    let lstb = lstbuttons.slice();
+    let lstb = lstbuttons.slice(0);
     let lstl = lstLetters.slice();
     for (let i = 0; i < 15; i++) {
         let c = Math.floor(Math.random() * (lstl.length));
